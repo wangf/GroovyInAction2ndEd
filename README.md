@@ -12,8 +12,6 @@ Notes:
 * Environment Variables
     - GROOVY_HOME=/opt/groovy-2.1.5
     - PATH=$GROOVY_HOME/bin:$PATH
-  
-  
 
 
 Links
