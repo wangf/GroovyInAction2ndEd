@@ -5,6 +5,49 @@ Groovy in Action, Second Edition
 * [http://www.manning.com/koenig2/](http://www.manning.com/koenig2/)
 
 
+Part I: The Groovy language
+---------------------------
+- 1 Your Way to Groovy
+- 2 Overture: The Groovy Basics
+- 3 The Simple Groovy Datatypes
+- 4 The Collective Groovy Datatypes
+- 5 Working with Closures
+- 6 Groovy Control Structures
+- 7 Object Orientation, Groovy Style
+- 8 Dynamic Programming with Groovy
+- 9 Compile-Time Metaprogramming and AST Transformations
+- 10 Groovy as a Static Language
+
+
+Part II: Around the Groovy library
+----------------------------------
+- 11 Working with Builders
+- 12 Working with the GDK
+- 13 Database Programming with Groovy
+- 14 Working with XML and JSON
+- 15 Interacting with Web Services
+- 16 Integrating Groovy
+
+
+Part III: Everyday Groovy
+-------------------------
+- 17 Unit Testing with Groovy
+- 18 Concurrent Groovy with GPars
+- 19 Domain Specific Languages (DSLs)
+- 20 The Groovy Ecosystem
+
+
+Appendices
+----------
+- A Installation and Documentation
+- B Groovy Language Info
+- C GDK API Quick Reference
+- D Cheat Sheets
+- E AST Transformation Parameters
+- F Compiler Phases
+- G AST Visitors
+
+
 Notes:
 ------
 * Java version 1.7.x

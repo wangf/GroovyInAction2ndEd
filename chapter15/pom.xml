@@ -10,8 +10,8 @@
         <version>2.0.0.BUILD-SNAPSHOT</version>
     </parent>
 
-    <artifactId>chapter01</artifactId>
+    <artifactId>chapter15</artifactId>
 
-    <name>Manning | Groovy in Action | Second Edition | 01 | Your Way to Groovy</name>
+    <name>Manning | Groovy in Action | Second Edition | 15 | Interacting with Web Services</name>
 
 </project>
