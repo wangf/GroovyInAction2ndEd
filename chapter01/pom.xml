@@ -14,4 +14,9 @@
 
     <name>Manning | Groovy in Action | Second Edition | 01 | Your Way to Groovy</name>
 
+
+    <build>
+        <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+    </build>
+
 </project>

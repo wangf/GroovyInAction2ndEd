@@ -14,4 +14,9 @@
 
     <name>Manning | Groovy in Action | Second Edition | 02 | Overture: The Groovy Basics</name>
 
+    <build>
+        <sourceDirectory>src/main/groovy</sourceDirectory>
+        <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+    </build>
+    
 </project>
