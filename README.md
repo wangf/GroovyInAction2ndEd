@@ -48,17 +48,23 @@ Appendices
 - G AST Visitors
 
 
-Notes:
-------
-* Java version 1.7.x
-* Groovy version 2.1.x
+Versions
+--------
+* Project configured using Java 1.7
+* Project configured using Groovy 2.1.5
 * Environment Variables
     - GROOVY_HOME=/opt/groovy-2.1.5
     - PATH=$GROOVY_HOME/bin:$PATH
 
 
-Links
------
+Project Structure
+-----------------
+* Groovy Classes are in chapter specific src/main/groovy
+* Groovy Scripts are in chapter specific src/main/scripts
+
+
+External Links
+--------------
 * [Guillaume Laforge's blog](http://glaforge.free.fr/weblog/index.php?catid=2&blogid=1 "Guillaume Laforge's blog")
 * [Dierk Koenig on Twitter](http://twitter.com/mittie "Dierk Koenig on Twitter")
 * [Paul King on Twitter](http://twitter.com/paulk_asert "Paul King on Twitter")
