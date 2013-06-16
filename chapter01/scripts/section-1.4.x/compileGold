@@ -1,0 +1,8 @@
+!/bin/bash
+
+# Chapter 01
+# Section 1.4.1
+# Approximate Page 21 
+
+groovyc -d classes Gold.groovy
+

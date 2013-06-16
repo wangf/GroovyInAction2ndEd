@@ -1,0 +1,10 @@
+!/bin/bash
+clear
+# Chapter 01
+# Section 1.4.2
+# Approximate Page 22 
+
+# To be executed from the command line
+java -cp $GROOVY_HOME/embeddable/groovy-all-2.1.5.jar:classes Gold
+
+

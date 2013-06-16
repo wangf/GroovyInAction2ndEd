@@ -1,0 +1,7 @@
+!/bin/bash
+
+# Chapter 01
+# Section 1.2.1
+# Approximate Page 13 
+
+groovy -e "new File('.').eachFileRecurse { println it }"
