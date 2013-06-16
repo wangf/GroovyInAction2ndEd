@@ -12,13 +12,26 @@
     <packaging>pom</packaging>
     <name>Manning | Groovy in Action | Second Edition | *** PARENT ***</name>
 
+    <description>
+        To check for updated versions, use the command 'mvn versions:display-property-updates'
+    </description>
+    
     <properties>
         <groovy.version>2.1.5</groovy.version>
-        <!--<groovy-eclipse-compiler.version>2.7.0-01</groovy-eclipse-compiler.version>-->
-        <groovy-eclipse-compiler.version>2.8.0-01-SNAPSHOT</groovy-eclipse-compiler.version>
+        <groovy-eclipse-compiler.version>2.7.0-01</groovy-eclipse-compiler.version>
+        <!--<groovy-eclipse-compiler.version>2.8.0-01-SNAPSHOT</groovy-eclipse-compiler.version>-->
         <jdk.version>1.7</jdk.version>
+        <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+        <maven-dependency-plugin.version>2.7</maven-dependency-plugin.version>
         <maven-gmaven-plugin.version>1.5</maven-gmaven-plugin.version>
+        <maven-help-plugin.version>2.2</maven-help-plugin.version>
+        <maven-install-plugin.version>2.4</maven-install-plugin.version>
+        <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
+        <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
+        <maven-surefire-plugin.version>2.14.1</maven-surefire-plugin.version>
+        <maven-versions-plugin.version>2.0</maven-versions-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -28,13 +41,6 @@
             <artifactId>groovy-all</artifactId>
             <version>${groovy.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-eclipse-compiler</artifactId>
-            <version>${groovy-eclipse-compiler.version}</version>
-        </dependency>
-
     </dependencies>
 
     <modules>
@@ -83,8 +89,74 @@
                     </dependency>
                 </dependencies>
             </plugin>
-            
-            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven-clean-plugin.version}</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${project.basedir}</directory>
+                            <includes>
+                                <include>surefire*</include>
+                                <include>*.log</include>
+                            </includes>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven-dependency-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>sources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${maven-jar-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${maven-install-plugin.version}</version>
+            </plugin>
         </plugins>
 
         <pluginManagement>
@@ -122,6 +194,7 @@
         </pluginManagement>
     </build>
 
+    <!-- Snapshot repositories for testing upcoming gmaven & groovy compiler dependencies -->
     <repositories>
         <repository>
             <id>codehaus.nexus.snapshot</id>
