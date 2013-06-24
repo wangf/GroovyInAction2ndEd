@@ -15,6 +15,5 @@ public class JavaRegexTest {
     public void verifyStringRegex() {
         final String aSlashB="a\\\\b";
         logger.debug("Here is the result of a slash slash slash slash b '{}'", aSlashB);    
-        
     }
 }
