@@ -10,10 +10,13 @@ import org.slf4j.LoggerFactory;
  */
 public class JavaRegexTest {
     private static final Logger logger = LoggerFactory.getLogger(JavaRegexTest.class);
+    public static final String MY_STRING = "a\\b";
+    
     
     @Test
-    public void verifyStringRegex() {
+    public void verifyStringRegexMore() {
         final String aSlashB="a\\\\b";
-        logger.debug("Here is the result of a slash slash slash slash b '{}'", aSlashB);    
+        logger.debug("Here is the result of a slash slash slash slash b '{}'", aSlashB);
+        logger.debug("Does it Match '{}'", MY_STRING.matches(aSlashB));
     }
 }
