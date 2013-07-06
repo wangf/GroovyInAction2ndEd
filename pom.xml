@@ -15,11 +15,11 @@
     <description>
         To check for updated versions, use the command 'mvn versions:display-property-updates'
     </description>
-    
+
     <properties>
         <groovy.version>2.1.5</groovy.version>
-        <groovy-eclipse-compiler.version>2.7.0-01</groovy-eclipse-compiler.version>
-        <!--<groovy-eclipse-compiler.version>2.8.0-01-SNAPSHOT</groovy-eclipse-compiler.version>-->
+        <groovy-eclipse-batch.version>2.1.5-03</groovy-eclipse-batch.version>
+        <groovy-eclipse-compiler.version>2.8.0-01</groovy-eclipse-compiler.version>
         <hamcrest.version>1.3</hamcrest.version>
         <jdk.version>1.7</jdk.version>
         <junit.version>4.11</junit.version>
@@ -105,6 +105,11 @@
                         <groupId>org.codehaus.groovy</groupId>
                         <artifactId>groovy-eclipse-compiler</artifactId>
                         <version>${groovy-eclipse-compiler.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-eclipse-batch</artifactId>
+                        <version>${groovy-eclipse-batch.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
