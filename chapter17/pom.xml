@@ -14,4 +14,21 @@
 
     <name>Manning | Groovy in Action | Second Edition | 17 | Unit Testing with Groovy</name>
 
+
+    <dependencies>
+        <dependency>
+            <groupId>junitperf</groupId>
+            <artifactId>junitperf</artifactId>
+            <version>1.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+    </dependencies>
 </project>
