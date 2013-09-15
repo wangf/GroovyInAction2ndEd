@@ -14,4 +14,10 @@
 
     <name>Manning | Groovy in Action | Second Edition | 18 | Concurrent Groovy with GPars</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.gpars</groupId>
+            <artifactId>gpars</artifactId>
+        </dependency>
+    </dependencies>
 </project>
