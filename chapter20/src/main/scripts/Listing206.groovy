@@ -1,0 +1,1 @@
+time groovyclient -e "println new Date()"
