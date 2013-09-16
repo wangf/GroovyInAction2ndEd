@@ -14,4 +14,33 @@
 
     <name>Manning | Groovy in Action | Second Edition | 15 | Interacting with Web Services</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.groovy.modules.http-builder</groupId>
+            <artifactId>http-builder</artifactId>
+            <version>0.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>3.0.4.Final</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.github.groovy-wslite</groupId>
+            <artifactId>groovy-wslite</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+    </dependencies>
 </project>
