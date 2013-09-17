@@ -14,4 +14,11 @@
 
     <name>Manning | Groovy in Action | Second Edition | 20 | The Groovy Ecosystem</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.groovy.modules.scriptom</groupId>
+            <artifactId>scriptom</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+    </dependencies>
 </project>
