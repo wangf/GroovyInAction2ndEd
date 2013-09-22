@@ -14,4 +14,11 @@
 
     <name>Manning | Groovy in Action | Second Edition | 10 | Groovy as a Static Language</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+    </dependencies>
 </project>
