@@ -13,11 +13,11 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.gradle.api.plugins:gradle-gaelyk-plugin:0.4.1'
-        classpath 'org.gradle.api.plugins:gradle-gae-plugin:0.8', {
+        classpath 'org.gradle.api.plugins:gradle-gaelyk-plugin:0.5'
+        classpath 'org.gradle.api.plugins:gradle-gae-plugin:0.9', {
             exclude module: "gradle-fatjar-plugin"
         }
-        classpath 'eu.appsatori:gradle-fatjar-plugin:0.2-rc1'
+        classpath 'eu.appsatori:gradle-fatjar-plugin:0.2'
         classpath 'org.gradle.api.plugins:gradle-gae-geb-plugin:0.3'
     }
 }
@@ -38,7 +38,7 @@ gaelykPrecompileTemplate.runtimeClasspath += project.configurations.precompile
 
 dependencies {
     def gaeVersion = '1.8.0'
-    def groovyVersion = '2.1.3'
+    def groovyVersion = '2.2.0-beta-2'
     groovy "org.codehaus.groovy:groovy-all:${groovyVersion}" 
 //    precompile "org.codehaus.groovy:groovy-ant:${groovyVersion}"     
 //    precompile "org.ow2.asm:asm:4.0" 
@@ -69,8 +69,8 @@ dependencies {
     testCompile "com.google.appengine:appengine-api-stubs:$gaeVersion",
                 "com.google.appengine:appengine-testing:$gaeVersion"
                 
-    functionalTestCompile 'org.codehaus.geb:geb-spock:0.7.0',
-                          'org.seleniumhq.selenium:selenium-firefox-driver:2.22.0'
+    functionalTestCompile 'org.gebish:geb-spock:0.9.1',
+                          'org.seleniumhq.selenium:selenium-firefox-driver:2.35.0'
     gaeSdk "com.google.appengine:appengine-java-sdk:$gaeVersion"
 }
 

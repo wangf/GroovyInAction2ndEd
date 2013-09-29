@@ -17,7 +17,9 @@
     </description>
 
     <properties>
+        <apache-httpcomponents.version>4.3</apache-httpcomponents.version>
         <commons-codec.version>1.8</commons-codec.version>
+        <commons-beanutils.version>1.8.3</commons-beanutils.version>
         <!--<groovy.version>2.1.7</groovy.version>-->
         <groovy.version>2.2.0-beta-2</groovy.version>
         <groovy-eclipse-batch.version>2.1.5-03</groovy-eclipse-batch.version>
@@ -51,7 +53,7 @@
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-        </dependency> 
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -313,6 +315,11 @@
                 <version>${groovy.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy</artifactId>
+                <version>${groovy.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.codehaus.gpars</groupId>
                 <artifactId>gpars</artifactId>
                 <version>${gpars.version}</version>
@@ -357,6 +364,11 @@
                 <version>${slf4j.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
@@ -388,6 +400,26 @@
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
                 <version>${commons-codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils-core</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache-httpcomponents.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${apache-httpcomponents.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
