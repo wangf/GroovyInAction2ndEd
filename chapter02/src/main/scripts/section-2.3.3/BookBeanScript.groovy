@@ -1,15 +1,16 @@
 /**
  * Chapter 02
  * Section 2.3.2
+ * 31-Jan-2015
  */
 class BookBean {
-    String title //Property declaration 
+    String title                                         //#A
 }
 
 def groovyBook = new BookBean()
 
-groovyBook.setTitle('Groovy conquers the world') //Property use with explicit method 
-assert groovyBook.getTitle() == 'Groovy conquers the world'
+groovyBook.setTitle('Groovy in Action')                //#B
+assert groovyBook.getTitle() == 'Groovy in Action'     //#B
 
-groovyBook.title = 'Groovy in Action' //Property use with Groovy shortcuts
-assert groovyBook.title == 'Groovy in Action' // 
+groovyBook.title = 'Groovy conquers the world'         //#C
+assert groovyBook.title == 'Groovy conquers the world' //#C

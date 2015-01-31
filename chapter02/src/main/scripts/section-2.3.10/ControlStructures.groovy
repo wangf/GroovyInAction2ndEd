@@ -1,7 +1,9 @@
 /**
  * Chapter 02
- * Section 2.3.9
+ * Section 2.3.10
+ * 31-Jan-2015
  */
+
 if (false) assert false    //'if' as one-liner 
 
 if (null)                  //Null is false 

@@ -1,19 +1,18 @@
 import groovy.transform.Immutable
 
-@Immutable class FixedBook { //AST annotation 
+@Immutable class FixedBook {                           //#A
     String title
 }
 
-def gina = new FixedBook('Groovy in Action') //positional ctor 
-def regina = new FixedBook(title: 'Groovy in Action') //named arg ctor 
+def gina   = new FixedBook('Groovy in Action')         //#B
+def regina = new FixedBook(title:'Groovy in Action')   //#C
 
 assert gina.title == 'Groovy in Action'
-assert gina == regina //standard equals() 
+assert gina == regina                                  //#D
 
 try {
-    gina.title = "Oops!" //not allowed! 
+    gina.title = "Oops!"                               //#E
     assert false, "should not reach here"
-} catch (ReadOnlyPropertyException e) {
-    //This is neat, standard Java getLocalizedMessage() groovy style
-    println "Expected Error: '$e.localizedMessage'"
-} 
+} catch (ReadOnlyPropertyException expected) {
+    println "Expected Error: '$expected.message'"
+}
