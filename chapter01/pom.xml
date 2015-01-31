@@ -17,6 +17,51 @@
 
     <build>
         <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+
+      <!-- 31-Jan-2015: Project failed to build with with gmavenplus plugin due to error in gmavenplus' pom -->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.codehaus.gmavenplus</groupId>-->
+                <!--<artifactId>gmavenplus-plugin</artifactId>-->
+                <!--<version>${maven-gmavenplus-plugin.version}</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>addSources</goal>-->
+                            <!--<goal>addTestSources</goal>-->
+                            <!--<goal>generateStubs</goal>-->
+                            <!--<goal>compile</goal>-->
+                            <!--<goal>testGenerateStubs</goal>-->
+                            <!--<goal>testCompile</goal>-->
+                            <!--<goal>removeStubs</goal>-->
+                            <!--<goal>removeTestStubs</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--&lt;!&ndash; if including source jars, use the no-fork goals-->
+                     <!--otherwise both the Groovy sources and Java stub sources will get included in your jar &ndash;&gt;-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-source-plugin</artifactId>-->
+                <!--&lt;!&ndash; source plugin \> = 2.1 is required to use the no-fork goals &ndash;&gt;-->
+                <!--<version>${maven-source-plugin.version}</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>attach-sources</id>-->
+                        <!--<goals>-->
+                            <!--<goal>jar-no-fork</goal>-->
+                            <!--<goal>test-jar-no-fork</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
     </build>
+
 
 </project>

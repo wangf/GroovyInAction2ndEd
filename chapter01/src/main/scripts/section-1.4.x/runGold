@@ -5,6 +5,6 @@ clear
 # Approximate Page 22 
 
 # To be executed from the command line
-java -cp $GROOVY_HOME/embeddable/groovy-all-2.1.5.jar:classes Gold
+java -cp $GROOVY_HOME/embeddable/groovy-all-2.4.0.jar:classes Gold
 
 

@@ -2,7 +2,8 @@
 
 # Chapter 01
 # Section 1.4.1
-# Approximate Page 21 
+# Approximate Page 21
+# 31-Jan-2015
 
 groovyc -d classes Gold.groovy
 
