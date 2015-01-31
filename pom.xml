@@ -7,7 +7,7 @@
 
     <groupId>com.manning.groovy</groupId>
     <artifactId>groovy-in-action-2nd</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
     <name>Manning | Groovy in Action | Second Edition | *** PARENT ***</name>
@@ -17,50 +17,48 @@
     </description>
 
     <properties>
-        <apache-httpcomponents.version>4.3</apache-httpcomponents.version>
-        <commons-beanutils.version>1.8.3</commons-beanutils.version>
+        <apache-httpcomponents.version>4.3.4</apache-httpcomponents.version>
+        <apache-httpcomponents-core.version>4.4</apache-httpcomponents-core.version>
+        <commons-beanutils.version>1.9.2</commons-beanutils.version>
         <commons-cli.version>1.2</commons-cli.version>
-        <commons-codec.version>1.8</commons-codec.version>
-        <commons-collections.version>3.2.1</commons-collections.version>
-        <commons-configuration.version>1.9</commons-configuration.version>
-        <commons-dbcp.version>1.4</commons-dbcp.version>
-        <commons-digester2.version>2.1</commons-digester2.version>
-        <commons-digester3.version>3.2</commons-digester3.version>
-        <commons-exec.version>1.1</commons-exec.version>
-        <commons-fileupload.version>1.3</commons-fileupload.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <commons-collections.version>4.0</commons-collections.version>
+        <commons-configuration.version>1.10</commons-configuration.version>
+        <commons-dbcp.version>2.0.1</commons-dbcp.version>
+        <commons-digester.version>3.2</commons-digester.version>
+        <commons-exec.version>1.3</commons-exec.version>
+        <commons-fileupload.version>1.3.1</commons-fileupload.version>
         <commons-io.version>2.4</commons-io.version>
-        <commons-lang2.version>2.6</commons-lang2.version>
-        <commons-lang3.version>3.1</commons-lang3.version>
+        <commons-lang3.version>3.3.2</commons-lang3.version>
         <commons-net.version>3.3</commons-net.version>
-        <commons-pool.version>1.6</commons-pool.version>
-        <commons-validator.version>1.4.0</commons-validator.version>
-        <!--<groovy.version>2.1.7</groovy.version>-->
-        <groovy.version>2.2.0-beta-2</groovy.version>
-        <groovy-eclipse-batch.version>2.1.5-03</groovy-eclipse-batch.version>
-        <groovy-eclipse-compiler.version>2.8.0-01</groovy-eclipse-compiler.version>
-        <gpars.version>1.1.0</gpars.version>
-        <h2.version>1.3.173</h2.version>
+        <commons-pool.version>2.3</commons-pool.version>
+        <commons-validator.version>1.4.1</commons-validator.version>
+        <groovy-eclipse-batch.version>2.3.7-01</groovy-eclipse-batch.version>
+        <groovy-eclipse-compiler.version>2.9.1-01</groovy-eclipse-compiler.version>
+        <groovy-gpars.version>1.2.1</groovy-gpars.version>
+        <groovy-spock.version>0.7-groovy-2.0</groovy-spock.version>
+        <groovy.version>2.4.0</groovy.version>
+        <h2.version>1.4.185</h2.version>
         <hamcrest.version>1.3</hamcrest.version>
         <jdk.version>1.7</jdk.version>
-        <junit.version>4.11</junit.version>
-        <logback.version>1.0.13</logback.version>
-        <maven-build-helper-plugin.version>1.8</maven-build-helper-plugin.version>
-        <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
-        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
-        <maven-dependency-plugin.version>2.8</maven-dependency-plugin.version>
-        <!--<maven-gmaven-plugin.version>1.5</maven-gmaven-plugin.version>-->
-        <maven-groovy-plugin.version>2.0-SNAPSHOT</maven-groovy-plugin.version>
+        <junit.version>4.12</junit.version>
+        <logback.version>1.1.2</logback.version>
+        <maven-build-helper-plugin.version>1.9.1</maven-build-helper-plugin.version>
+        <maven-clean-plugin.version>2.6.1</maven-clean-plugin.version>
+        <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
+        <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-groovy-plugin.version>2.0</maven-groovy-plugin.version>
         <maven-help-plugin.version>2.2</maven-help-plugin.version>
-        <maven-install-plugin.version>2.5</maven-install-plugin.version>
-        <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
-        <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
-        <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-        <maven-surefire-plugin.version>2.16</maven-surefire-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-jar-plugin.version>2.5</maven-jar-plugin.version>
+        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+        <maven-source-plugin.version>2.4</maven-source-plugin.version>
+        <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
         <maven-versions-plugin.version>2.1</maven-versions-plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <slf4j.version>1.7.5</slf4j.version>
-        <spock.version>0.7-groovy-2.0</spock.version>
-        <spring-framework.version>3.2.4.RELEASE</spring-framework.version>
+        <slf4j.version>1.7.10</slf4j.version>
+        <spring-framework.version>4.1.4.RELEASE</spring-framework.version>
     </properties>
 
     <dependencies>
@@ -88,11 +86,6 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
         </dependency>
-        <dependency>
-            <groupId>uk.org.lidalia</groupId>
-            <artifactId>sysout-over-slf4j</artifactId>
-            <version>1.0.2</version>
-        </dependency>
     </dependencies>
 
     <modules>
@@ -104,15 +97,15 @@
         <module>chapter06</module>
         <module>chapter07</module>
         <module>chapter08</module>
-        <module>chapter09</module>
+        <!--<module>chapter09</module>-->
         <module>chapter10</module>
         <module>chapter11</module>
         <module>chapter12</module>
         <module>chapter13</module>
         <module>chapter14</module>
         <module>chapter15</module>
-        <module>chapter16</module>
-        <module>chapter17</module>
+        <!--<module>chapter16</module>-->
+        <!--<module>chapter17</module>-->
         <module>chapter18</module>
         <module>chapter19</module>
         <module>chapter20</module>
@@ -247,6 +240,11 @@
                 <version>${maven-install-plugin.version}</version>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven-deploy-plugin.version}</version>
+            </plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
                 <version>${maven-versions-plugin.version}</version>
@@ -255,12 +253,6 @@
 
         <pluginManagement>
             <plugins>
-                <!-- http://docs.codehaus.org/display/GMAVEN/Home -->
-                <!--<plugin>-->
-                <!--<groupId>org.codehaus.gmaven</groupId>-->
-                <!--<artifactId>gmaven-plugin</artifactId>-->
-                <!--<version>${maven-gmaven-plugin.version}</version>-->
-                <!--</plugin>-->
                 <plugin>
                     <groupId>org.codehaus.gmaven</groupId>
                     <artifactId>groovy-maven-plugin</artifactId>
@@ -272,54 +264,32 @@
                     </configuration>
                 </plugin>
 
-                <!-- http://groovy.codehaus.org/Groovy-Eclipse+compiler+plugin+for+Maven -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
-                    <configuration>
-                        <compilerArguments>
-                            <Xlint/>
-                        </compilerArguments>
-                        <source>${jdk.version}</source>
-                        <target>${jdk.version}</target>
-                        <compilerId>groovy-eclipse-compiler</compilerId>
-                        <verbose>true</verbose>
-                    </configuration>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.codehaus.groovy</groupId>
-                            <artifactId>groovy-eclipse-compiler</artifactId>
-                            <version>${groovy-eclipse-compiler.version}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
     <!-- Snapshot repositories for testing upcoming gmaven & groovy compiler dependencies -->
-    <repositories>
-        <repository>
-            <id>codehaus.nexus.snapshot</id>
-            <name>Codehaus Nexus Snapshots</name>
-            <url>http://nexus.codehaus.org/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>codehaus.nexus.snapshot</id>-->
+            <!--<name>Codehaus Nexus Snapshots</name>-->
+            <!--<url>http://nexus.codehaus.org/snapshots/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</repository>-->
+    <!--</repositories>-->
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>codehaus.nexus.plugin.snapshot</id>
-            <name>Codehaus Plugin Nexus Snapshots</name>
-            <url>http://nexus.codehaus.org/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+    <!--<pluginRepositories>-->
+        <!--<pluginRepository>-->
+            <!--<id>codehaus.nexus.plugin.snapshot</id>-->
+            <!--<name>Codehaus Plugin Nexus Snapshots</name>-->
+            <!--<url>http://nexus.codehaus.org/snapshots/</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+            <!--</snapshots>-->
+        <!--</pluginRepository>-->
+    <!--</pluginRepositories>-->
 
     <dependencyManagement>
         <dependencies>
@@ -336,7 +306,7 @@
             <dependency>
                 <groupId>org.codehaus.gpars</groupId>
                 <artifactId>gpars</artifactId>
-                <version>${gpars.version}</version>
+                <version>${groovy-gpars.version}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
@@ -347,7 +317,7 @@
             <dependency>
                 <groupId>org.spockframework</groupId>
                 <artifactId>spock-core</artifactId>
-                <version>${spock.version}</version>
+                <version>${groovy-spock.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -412,8 +382,8 @@
             </dependency>
             <!-- Apache Commons Dependencies -->
             <dependency>
-                <groupId>commons-dbcp</groupId>
-                <artifactId>commons-dbcp</artifactId>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-dbcp2</artifactId>
                 <version>${commons-dbcp.version}</version>
             </dependency>
             <dependency>
@@ -435,16 +405,11 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
+                <version>${commons-lang.version}</version>
             </dependency>
             <dependency>
-                <groupId>commons-lang</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons-lang2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
                 <version>${commons-collections.version}</version>
             </dependency>
             <dependency>
@@ -476,12 +441,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-digester3</artifactId>
-                <version>${commons-digester3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-digester</groupId>
-                <artifactId>commons-digester</artifactId>
-                <version>${commons-digester2.version}</version>
+                <version>${commons-digester.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-beanutils</groupId>
@@ -513,7 +473,7 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>${http-components.version}</version>
+                <version>${apache-httpcomponents.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-logging</groupId>
@@ -522,15 +482,22 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>commons-pool</groupId>
-                <artifactId>commons-pool</artifactId>
-                <version>${commons-pool.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
-                <version>${apache-httpcomponents.version}</version>
+                <version>${apache-httpcomponents-core.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

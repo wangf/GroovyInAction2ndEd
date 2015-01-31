@@ -3,8 +3,6 @@ package com.manning.groovyinaction
 import groovy.sql.Sql
 import groovy.util.logging.Slf4j
 import org.slf4j.bridge.SLF4JBridgeHandler
-import uk.org.lidalia.sysoutslf4j.context.LogLevel
-import uk.org.lidalia.sysoutslf4j.context.SysOutOverSLF4J
 
 @Slf4j
 class DatabaseCreator {
@@ -16,7 +14,6 @@ class DatabaseCreator {
         def julHandler = new SLF4JBridgeHandler()
         julHandler.removeHandlersForRootLogger()
         julHandler.install()
-        SysOutOverSLF4J.sendSystemOutAndErrToSLF4J LogLevel.DEBUG, LogLevel.ERROR
 
 //        println groovy.sql.Sql.methods
 
@@ -124,7 +121,6 @@ class DatabaseCreator {
 //            log.debug athletes.collect { "${it[0]} ${it.lastname}" }.join(", ")
 //
 //        }
-
 
 //        db.withTransaction {
 //            athleteInsert 'Haile', 'Gebrselassie', '1973-04-18'
