@@ -1,6 +1,7 @@
 /**
  * Chapter 03
  * Section 3.6.1
+ * 01-Feb-2015
  */
 
 assert 1f*2f instanceof Double
@@ -23,4 +24,4 @@ assert 2.5G+1G  instanceof BigDecimal
 //assert (1.5G==1.5F) instanceof  Boolean(true)
 assert (1.5G==1.5F) instanceof  Boolean
 println (1.5G==1.5F) == true
-println (1.1G==1.1F)  == false 
+println (1.1G==1.1F)  == false

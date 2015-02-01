@@ -1,7 +1,8 @@
 /**
  * Chapter 03
- * Sectio 3.3.1
+ * Section 3.3.1
  */
+
 def a = 1
 def b = 2
 def c = 3
@@ -14,6 +15,8 @@ assert a * b == a.multiply(b)
 
 assert a / b == a.div(b)
 assert a % b == a.mod(b)
+
+
 
 //TODO
 //assert a++ == a.next()
@@ -34,8 +37,8 @@ assert a ** b == a.power(b)
 //assert a ^ b == a.xor(b)
 //TODO
 //assert ~a == a.bitwiseNegate()
-assert a[b] == a.getAt(b)
-assert (a[b] = c) == a.putAt(b, c)
+//assert a[b] == a.getAt(b)
+//assert (a[b] = c) == a.putAt(b, c)
 
 assert a << b == a.leftShift(b)
 assert a >> b == a.rightShift(b)
@@ -46,7 +49,7 @@ assert a >>> b == a.rightShiftUnsigned(b)
 assert a in b == b.isCase(a)
 //TODO
 //assert (a == b) == ( if a implements Comparable then a.compareTo (b) == 0 else a.equals (b))
-assert a != b == !a == b
+//assert a != b == !a == b
 assert a <=> b == a.compareTo(b)
 assert a > b == a.compareTo(b) > 0
 assert a >= b == a.compareTo(b) >= 0

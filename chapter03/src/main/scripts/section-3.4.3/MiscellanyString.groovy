@@ -1,7 +1,10 @@
 /**
  * Chapter 03
  * Section 3.4.3
+ * 01-Feb-2015
  */
+
+
 String greeting = 'Hello Groovy!'
 
 assert greeting.startsWith('Hello')
@@ -17,7 +20,7 @@ assert 'Hi' + greeting - 'Hello' == 'Hi Groovy!'
 
 assert greeting.count('o') == 3
 
-assert 'x'.padLeft(3)      == '  x'
-assert 'x'.padRight(3,'_') == 'x__'
-assert 'x'.center(3)       == ' x '
-assert 'x' * 3             == 'xxx' 
+assert 'x'.padLeft(3) == '  x'
+assert 'x'.padRight(3, '_') == 'x__'
+assert 'x'.center(3) == ' x '
+assert 'x' * 3 == 'xxx'
