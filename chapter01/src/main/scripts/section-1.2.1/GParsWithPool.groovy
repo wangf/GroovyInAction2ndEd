@@ -1,7 +1,8 @@
 // Chapter 01
 // Section 1.2.1
 // Approximate Page 13
-// 31-Jan-2015
+// 04-Feb-2015
+
 import static groovyx.gpars.GParsPool.withPool
 
 def urls = [

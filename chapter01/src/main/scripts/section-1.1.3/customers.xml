@@ -2,11 +2,12 @@
 <customers>
     <corporate>
         <customer name="Bill Gates" company="Microsoft"/>
-        <customer name="Steve Jobs" company="Apple"/>
-        <customer name="Jonathan Schwartz" company="Sun"/>
+        <customer name="Tim Cook" company="Apple"/>
+        <customer name="Larry Ellison" company="Oracle"/>
     </corporate>
     <consumer>
         <customer name="John Doe"/>
         <customer name="Jane Doe"/>
     </consumer>
 </customers>
+

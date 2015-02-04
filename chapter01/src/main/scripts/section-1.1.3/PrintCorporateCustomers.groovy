@@ -2,7 +2,7 @@
  * Chapter 01 
  * Section 1.1.3
  * Approximate Page 11
- * 31-Jan-2015
+ * 04-Feb-2015
  */
 
 def customers = new XmlSlurper().parse(new File('customers.xml'))

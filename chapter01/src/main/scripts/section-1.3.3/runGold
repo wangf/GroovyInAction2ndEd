@@ -6,5 +6,3 @@ clear
 
 # To be executed from the command line
 java -cp $GROOVY_HOME/embeddable/groovy-all-2.4.0.jar:classes Gold
-
-
