@@ -1,24 +1,23 @@
 /**
  * Chapter 04
- * Section 4.3.2
  * Listing 4.12
+ *
+ * 07-Feb-2015
  */
 
 def myMap = [a: 1, b: 2, c: 3]
-assert myMap['a'] == 1    //#A
-assert myMap.a == 1    //#A
-assert myMap.get('a') == 1    //#A
-assert myMap.get('a', 0) == 1    //#A
-assert myMap['d'] == null   //#B
-assert myMap.d == null   //#B
-assert myMap.get('d') == null   //#B
-assert myMap.get('d', 0) == 0   //#C
-assert myMap.d == 0   //#C
-myMap['d'] = 1        //#D
-assert myMap.d == 1   //#D
-myMap.d = 2           //#D
-assert myMap.d == 2   //#D 
 
+assert myMap instanceof LinkedHashMap
+assert myMap.size() == 3
+assert myMap['a'] == 1
 
-myMap = ['a.b': 1]
-assert myMap.'a.b' == 1
+def emptyMap = [:]
+assert emptyMap.size() == 0
+
+def explicitMap = new TreeMap()
+explicitMap.putAll(myMap)
+assert explicitMap['a'] == 1
+
+def composed = [x: 'y', *: myMap]                    //#A
+assert composed == [x: 'y', a: 1, b: 2, c: 3]
+

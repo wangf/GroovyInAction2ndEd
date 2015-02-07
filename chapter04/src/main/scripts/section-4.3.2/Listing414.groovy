@@ -1,41 +1,23 @@
 /**
  * Chapter 04
- * Section 4.3.2
  * Listing 4.14
+ *
+ * 07-Feb-2015
  */
 
-def myMap = [a: 1, b: 2, c: 3]
+def myMap = [a:1, b:2, c:3]
+def other = [b:2, c:3, a:1]
 
-def store = ''
-myMap.each { entry ->       //#A
-    store += entry.key     //#A
-    store += entry.value   //#A
-}                          //#A
-assert store.contains('a1')
-assert store.contains('b2')
-assert store.contains('c3')
+assert myMap == other                                  //#A
 
-store = ''
-myMap.each { key, value ->   //#B
-    store += key            //#B
-    store += value          //#B
-}                           //#B
-assert store.contains('a1')
-assert store.contains('b2')
-assert store.contains('c3')
+assert !myMap.isEmpty()                                //#B
+assert myMap.size()     == 3                           //#B
+assert myMap.containsKey('a')                          //#B
+assert myMap.containsValue(1)                          //#B
+assert myMap.entrySet() instanceof Collection          //#B
 
-store = ''
-for (key in myMap.keySet()) {   //#C
-    store += key                //#C
-}                               //#C
-assert store.contains('a')
-assert store.contains('b')
-assert store.contains('c')
+assert myMap.any   {entry -> entry.value > 2  }        //#1
+assert myMap.every {entry -> entry.key   < 'd'}        //#1
+assert myMap.keySet() == ['a','b','c'] as Set          //#C
+assert myMap.values().toList() == [1, 2, 3]            //#D
 
-store = ''
-for (value in myMap.values()) {   //#D
-    store += value                //#D
-}                                 //#D
-assert store.contains('1')
-assert store.contains('2')
-assert store.contains('3')

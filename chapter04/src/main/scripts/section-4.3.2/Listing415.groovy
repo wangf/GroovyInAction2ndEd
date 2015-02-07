@@ -1,35 +1,34 @@
 /**
  * Chapter 04
- * Section 4.3.2
  * Listing 4.15
+ *
+ * 07-Feb-2015
  */
 
 def myMap = [a: 1, b: 2, c: 3]
-myMap.clear()
-assert myMap.isEmpty()
 
-myMap = [a: 1, b: 2, c: 3]
-myMap.remove('a')
-assert myMap.size() == 2
+def store = ''
+myMap.each { entry ->                                  //#A
+    store += entry.key                                 //#A
+    store += entry.value                               //#A
+}                                                      //#A
+assert store == 'a1b2c3'
 
-myMap = [a: 1, b: 2, c: 3]
-def abMap = myMap.subMap(['a', 'b'])      //#1
-assert abMap.size() == 2
+store = ''
+myMap.each { key, value ->                             //#B
+    store += key                                       //#B
+    store += value                                     //#B
+}                                                      //#B
+assert store == 'a1b2c3'
 
-abMap = myMap.findAll { entry -> entry.value < 3 }
-assert abMap.size() == 2
-assert abMap.a == 1
+store = ''
+for (key in myMap.keySet()) {                          //#C
+    store += key                                       //#C
+}                                                      //#C
+assert store == 'abc'
 
-def found = myMap.find { entry -> entry.value < 2 }
-assert found.key == 'a'
-assert found.value == 1
-
-def doubled = myMap.collect { entry -> entry.value *= 2 }
-assert doubled instanceof List
-assert doubled.every { item -> item % 2 == 0 }
-
-def addTo = []
-myMap.collect(addTo) { entry -> entry.value *= 2 }
-assert doubled instanceof List
-assert addTo.every { item -> item % 2 == 0 }
-
+store = ''
+for (value in myMap.values()) {                        //#D
+    store += value                                     //#D
+}                                                      //#D
+assert store == '123'

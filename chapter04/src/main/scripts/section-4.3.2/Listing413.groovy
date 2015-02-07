@@ -1,24 +1,26 @@
 /**
  * Chapter 04
- * Section 4.3.2
  * Listing 4.13
+ *
+ * 07-Feb-2015
  */
 
+def myMap = [a: 1, b: 2, c: 3]
 
-def myMap = [a:1, b:2, c:3]
-def other = [b:2, c:3, a:1]
-assert myMap == other                                  //#A
-assert myMap.isEmpty()  == false                       //#B
-assert myMap.size()     == 3                           //#B
-assert myMap.containsKey('a')                          //#B
-assert myMap.containsValue(1)                          //#B
-assert myMap.keySet()        == toSet(['a','b','c'])   //#B
-assert toSet(myMap.values()) == toSet([1,2,3])         //#B
-assert myMap.entrySet() instanceof Collection          //#B
+assert myMap['a'] == 1                           //#A
+assert myMap.a == 1                           //#A
+assert myMap.get('a') == 1                           //#A
+assert myMap.get('a', 0) == 1                           //#A
 
-assert myMap.any   {entry -> entry.value > 2  }        //#1
-assert myMap.every {entry -> entry.key   < 'd'}        //#1
+assert myMap['d'] == null                        //#B
+assert myMap.d == null                        //#B
+assert myMap.get('d') == null                        //#B
 
-def toSet(list){                  //#C
-    new java.util.HashSet(list)   //#C
-}                                 //#C
+assert myMap.get('d', 0) == 0                           //#C
+assert myMap.d == 0                           //#C
+
+myMap['d'] = 1                                         //#D
+assert myMap.d == 1                                    //#D
+myMap.d = 2                                            //#D
+assert myMap.d == 2                                    //#D
+
