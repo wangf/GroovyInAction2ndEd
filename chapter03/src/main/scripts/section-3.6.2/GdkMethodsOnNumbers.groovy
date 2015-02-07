@@ -5,7 +5,7 @@
  */
 
 def store = ''
-10.times{                                              //#A
+10.times {                                              //#A
     store += 'x'
 }
 assert store == 'xxxxxxxxxx'
@@ -23,7 +23,7 @@ store = ''
 assert store == '2 1 0 -1 -2 '
 
 store = ''
-0.step(0.5, 0.1 ){ number ->                           //#D
+0.step(0.5, 0.1) { number ->                           //#D
     store += number + ' '
 }
 assert store == '0 0.1 0.2 0.3 0.4 '

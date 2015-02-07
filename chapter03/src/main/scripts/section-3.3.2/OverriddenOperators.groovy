@@ -19,7 +19,12 @@ class Money {
         }
         return new Money(amount + other.amount, currency)
     }
+
+    Money plus(Integer more) {
+        return new Money(amount + more, currency)
+    }
 }
+
 
 Money buck = new Money(1, 'USD')
 assert buck

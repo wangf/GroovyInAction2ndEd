@@ -10,11 +10,11 @@ assert fourLetters.isCase('work')
 
 assert 'love' in fourLetters
 
-switch('beer'){
+switch ('beer') {
     case fourLetters: assert true; break
-    default         : assert false
+    default: assert false
 }
 
-beasts = ['bear','wolf','tiger','regex']
+beasts = ['bear', 'wolf', 'tiger', 'regex']
 
-assert beasts.grep(fourLetters) == ['bear','wolf']
+assert beasts.grep(fourLetters) == ['bear', 'wolf']

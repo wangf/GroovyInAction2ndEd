@@ -17,6 +17,23 @@ assert a / b == a.div(b)
 assert a % b == a.mod(b)
 
 
+//def preIncrement = {
+//     a = it.next(); a
+//}
+//
+//def postIncrement = {
+//    def v = a; a = a.next(); v
+//}
+//
+//def preDecrement = {
+//    a = a.previous(); a
+//}
+//
+//def postDecrement = {
+//    def v = a; a = a.previous(); v
+//}
+
+
 
 //TODO
 //assert a++ == a.next()
@@ -28,7 +45,7 @@ assert a % b == a.mod(b)
 //assert -a == a.negative()
 //TODO
 //assert (+a) == a.positive()
-assert a ** b == a.power(b)
+assert a**b == a.power(b)
 //TODO
 //assert a | b == a.or(b)
 //TODO

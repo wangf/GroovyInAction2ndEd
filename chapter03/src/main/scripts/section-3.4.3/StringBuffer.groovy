@@ -4,7 +4,6 @@
  * 01-Feb-2015
  */
 
-
 def greeting = 'Hello'
 
 greeting <<= ' Groovy'                                 //#1

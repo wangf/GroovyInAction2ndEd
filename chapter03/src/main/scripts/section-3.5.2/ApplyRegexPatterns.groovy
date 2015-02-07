@@ -2,6 +2,12 @@
  * Chapter 03
  * Section 3.5.2
  * 01-Feb-2015
+ *
+ * The regex FIND operator =~
+ * The regex MATCH operator ==~
+ * The regex PATTERN operator ~string
+ * The slashy is /pattern/
+ * The dollar slashy is $/pattern/$
  */
 
 def twister = 'she sells sea shells at the sea shore of seychelles'
@@ -28,5 +34,6 @@ assert wordsByX == 'x x x x x x x x x x'
 def words = twister.split(/ /)                                 //#D
 assert words.size() == 10
 assert words[0] == 'she'
+
 
 

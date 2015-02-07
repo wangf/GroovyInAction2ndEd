@@ -18,3 +18,4 @@ assert 5 == '5'.toInteger()
 assert 5 == '5' as Integer
 assert 53 == (int) '5'           // gotcha!
 assert '6 times' == 6 + ' times' // Number + String
+

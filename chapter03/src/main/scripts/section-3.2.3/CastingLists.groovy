@@ -16,3 +16,4 @@ assert center instanceof Point
 def rect = new Rectangle()
 rect.location = [0, 0] // Point
 rect.size = [width:100, height:100] // Dimension
+

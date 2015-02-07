@@ -6,7 +6,7 @@
 
 
 //java.lang.Integer
-[15, 0x1234ffff].each {
+[15, 0x1234ffff, 0b00110011, 100_000_000].each {
     println "$it = ${it.class.name}"
     assert it.class.name == "java.lang.Integer"
 }
