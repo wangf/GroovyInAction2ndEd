@@ -1,19 +1,16 @@
-class ClassWithProperties {
-    def someProperty
-    public someField
-    private somePrivateField
+class DoublerBean {
+    public value                                       //#A
+
+    void setValue(value){
+        this.value = value                             //#1
+    }
+
+    def getValue(){
+        value * 2                                      //#2
+    }
 }
 
-def obj = new ClassWithProperties()
+def bean = new DoublerBean(value: 100)
 
-def store = []
-obj.properties.each { property ->
-    store += property.key
-    store += property.value
-}
-assert store.contains('someProperty')
-assert store.contains('someField') == false
-assert store.contains('somePrivateField') == false
-assert store.contains('class')
-
-assert obj.properties.size() == 2
+assert 200 == bean.value                               //#3
+assert 100 == bean.@value                              //#B

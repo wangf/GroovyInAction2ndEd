@@ -1,11 +1,19 @@
-def boxer = new Expando()
+class ClassWithProperties {
+    def someProperty
+    public someField
+    private somePrivateField
+}
 
-assert null == boxer.takeThis
+def obj = new ClassWithProperties()
 
-boxer.takeThis = 'ouch!'
+def store = []
+obj.properties.each { property ->
+    store += property.key
+    store += property.value
+}
+assert store.contains('someProperty')
+assert store.contains('someField') == false
+assert store.contains('somePrivateField') == false
+assert store.contains('class')
 
-assert 'ouch!' == boxer.takeThis
-
-boxer.fightBack = { times -> return this.takeThis * times }
-
-assert 'ouch!ouch!ouch!' == boxer.fightBack(3)
+assert obj.properties.size() == 2

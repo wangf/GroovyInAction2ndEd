@@ -1,16 +1,12 @@
-class DoublerBean {
-    public value                                       //#A
+class MrBean {
+    String firstname, lastname                         //#A
 
-    void setValue(value) {
-        this.value = value                             //#1
-    }
-
-    def getValue() {
-        value * 2                                      //#2
+    String getName() {                                  //#1
+        return "$firstname $lastname"
     }
 }
 
-def bean = new DoublerBean(value: 100)
+def bean = new MrBean(firstname: 'Rowan')              //#B
+bean.lastname = 'Atkinson'                             //#2
 
-assert 200 == bean.value                               //#3
-assert 100 == bean.@value                              //#B
+assert 'Rowan Atkinson' == bean.name                   //#3
