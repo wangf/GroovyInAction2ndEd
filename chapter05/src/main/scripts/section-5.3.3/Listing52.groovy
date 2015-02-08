@@ -1,26 +1,25 @@
 /**
  * Chapter 05
  * Listing 5.2
+ *
+ * 07-Feb-2015
  */
-class MethodClosureSample {
-    int limit
 
-    MethodClosureSample(int limit) {
-        this.limit = limit
-    }
+class SizeFilter {
+    Integer limit
 
-    boolean validate(String value) {
-        return value.length() <= limit
+    boolean sizeUpTo(String value) {
+        return value.size() <= limit
     }
 }
 
+SizeFilter filter6 = new SizeFilter(limit: 6)           //#1
+SizeFilter filter5 = new SizeFilter(limit: 5)           //#1
 
-MethodClosureSample first = new MethodClosureSample(6)   //#1
-MethodClosureSample second = new MethodClosureSample(5)  //#1
-
-Closure firstClosure = first.&validate                      //#2
+Closure sizeUpTo6 = filter6.&sizeUpTo                  //#2
 
 def words = ['long string', 'medium', 'short', 'tiny']
 
-assert 'medium' == words.find(firstClosure)                 //#3
-assert 'short' == words.find(second.&validate)              
+assert 'medium' == words.find(sizeUpTo6)              //#3
+assert 'short' == words.find(filter5.&sizeUpTo)      //#4
+

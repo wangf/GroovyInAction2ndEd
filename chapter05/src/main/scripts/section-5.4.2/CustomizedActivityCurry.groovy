@@ -6,6 +6,7 @@
 def configurator = { format, filter, line ->  //#1
     filter(line) ?  format(line) : null       //#1
 }
+
 def appender = { config, append, line ->   //#2
     def out = config(line)                 //#2
     if (out) append(out)                   //#2

@@ -1,10 +1,16 @@
 /**
  * Chapter 05
  * Section 5.4.2
+ *
+ * 07-Feb-2015
  */
 
-assert [1,2,3].grep{ it<3 } == [1,2]
+def odd = { it % 2 == 1 }
 
-switch(10){
-    case {it%2 == 1} : assert false
+assert [1, 2, 3].grep(odd) == [1, 3]
+
+switch (10) {
+    case odd: assert false
 }
+
+if (2 in odd) assert false

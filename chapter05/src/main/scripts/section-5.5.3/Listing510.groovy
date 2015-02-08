@@ -1,7 +1,7 @@
 /**
  * Chapter 05
  * Section 5.5.3
- * Listing 5.9
+ * Listing 5.10
  */
 
 def foo(n) {
