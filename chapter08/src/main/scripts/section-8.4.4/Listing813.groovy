@@ -17,3 +17,4 @@ try {
 
 assert myJava.test() == "MyJava prop"
 
+

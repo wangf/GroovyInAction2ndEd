@@ -22,3 +22,5 @@ assert "HAL".orig == "IBM"
 def ibm = "IBM"
 ibm.shift = 7
 assert ibm.code == "PIT"
+
+

@@ -3,45 +3,14 @@
  * Section 8.5.3
  * Listing 8.24
  */
-interface ChannelComponent {}
 
-class Producer implements ChannelComponent {
-    List<Integer> outChannel
+import java.awt.Dimension
+
+Class.metaClass.make = { Object[] args ->
+    delegate.metaClass.invokeConstructor(*args)
 }
 
-class Adaptor implements ChannelComponent {
-    List<Integer> inChannel
-    List<String> outChannel
-}
-
-class Printer implements ChannelComponent {
-    List<String> inChannel
-}
-
-class WiringCategory {
-    static connections = []
-
-    static setInChannel(ChannelComponent self, value) { //#1
-        connections << [target: self, source: value]
-    }
-
-    static getOutChannel(ChannelComponent self) {
-        self
-    }
-}
-
-Producer producer = new Producer()
-Adaptor adaptor = new Adaptor()
-Printer printer = new Printer()
-
-use WiringCategory, {
-    adaptor.inChannel = producer.outChannel //|#2
-    printer.inChannel = adaptor.outChannel  //|#2
-}
-
-assert WiringCategory.connections == [
-        [source: producer, target: adaptor],
-        [source: adaptor, target: printer]
-]
- 
+assert new HashMap()        == HashMap.make()
+assert new Integer(42)      == Integer.make(42)
+assert new Dimension(2, 3)  == Dimension.make(2, 3)
 

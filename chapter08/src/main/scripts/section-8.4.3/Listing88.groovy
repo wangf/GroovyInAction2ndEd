@@ -4,13 +4,11 @@
  * Listing 8.8
  */
 
-
 class InspectMe {
-    int outer() {
+    int outer(){
         return inner()
     }
-
-    private int inner() {
+    private int inner(){
         return 1
     }
 }
@@ -30,5 +28,4 @@ before InspectMe.outer()
   after  InspectMe.inner()
 after  InspectMe.outer()
 """
-
 

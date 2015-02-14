@@ -21,4 +21,3 @@ use Marshal, {
         assert it.marshal().unMarshal() == it
     }
 }
-

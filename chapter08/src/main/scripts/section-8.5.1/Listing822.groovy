@@ -4,11 +4,19 @@
  * Listing 8.22
  */
 
-Number.metaClass {
-    getMm = { delegate }
-    getCm = { delegate * 10.mm }
-    getM = { delegate * 100.cm }
+class EvenSieve {
+    def getNo2() {
+        removeAll { it % 2 == 0}
+        return this
+    }
+}
+class MinusSieve {
+    def minus(int num) {
+        removeAll { it % num == 0}
+        return this
+    }
 }
 
-assert 1.m + 20.cm - 8.mm == 1.192.m
+ArrayList.mixin EvenSieve, MinusSieve
 
+assert (0..10).toList().no2 - 3 - 5 == [1, 7]

@@ -4,18 +4,19 @@
  * Listing 8.12
  */
 
-class MyGroovy1 {}
+class MyGroovy2 {}
 
-def before = new MyGroovy1()
+def myGroovy = new MyGroovy2()
 
-MyGroovy1.metaClass.myProp = "MyGroovy prop"
-MyGroovy1.metaClass.test = { -> myProp }
+myGroovy.metaClass.myProp = "MyGroovy prop"
+myGroovy.metaClass.test = { -> myProp }
 
 try {
-    before.test()                   //#1
+    new MyGroovy2().test()          //#1
     assert false, "should throw MME"
 } catch (mme) {
 }
 
-assert new MyGroovy1().test() == "MyGroovy prop"
+assert myGroovy.test() == "MyGroovy prop"
+
 

@@ -20,3 +20,4 @@ try {
 assert new MyGroovy1().test() == "MyGroovy prop"
 
 
+

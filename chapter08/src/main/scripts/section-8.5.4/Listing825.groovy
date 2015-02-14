@@ -4,26 +4,43 @@
  * Listing 8.25
  */
 
-MetaClass oldMetaClass = String.metaClass           //#1
+interface ChannelComponent {}
 
-MetaMethod alias = String.metaClass.metaMethods     //#2
-        .find { it.name == 'size' }
-String.metaClass {
-    oldSize = { -> alias.invoke delegate }
-    size = { -> oldSize() * 2 }
+class Producer implements ChannelComponent {
+    List<Integer> outChannel
 }
 
-assert "abc".size() == 6
-assert "abc".oldSize() == 3
+class Adaptor implements ChannelComponent {
+    List<Integer> inChannel
+    List<String> outChannel
+}
 
-if (oldMetaClass.is(String.metaClass)) {
-    String.metaClass {                              //#3
-        size = { -> alias.invoke delegate }
-        oldSize = { -> throw new UnsupportedOperationException() }
+class Printer implements ChannelComponent {
+    List<String> inChannel
+}
+
+class WiringCategory {
+    static connections = []
+
+    static setInChannel(ChannelComponent self, value) { //#1
+        connections << [target: self, source: value]
     }
-} else {
-    String.metaClass = oldMetaClass                 //#4
+
+    static getOutChannel(ChannelComponent self) {
+        self
+    }
 }
 
-assert "abc".size() == 3
+Producer producer = new Producer()
+Adaptor adaptor = new Adaptor()
+Printer printer = new Printer()
 
+use WiringCategory, {
+    adaptor.inChannel = producer.outChannel //|#2
+    printer.inChannel = adaptor.outChannel  //|#2
+}
+
+assert WiringCategory.connections == [
+        [source: producer, target: adaptor],
+        [source: adaptor, target: printer]
+]

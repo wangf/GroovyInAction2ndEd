@@ -18,3 +18,4 @@ use Collections, {
     list.rotate 1
     assert list == [3, 0, 1, 2]
 }
+
