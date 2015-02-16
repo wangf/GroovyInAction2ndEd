@@ -10,4 +10,4 @@ frame = swing.frame(title: 'Password') {
     )
 }
 frame.pack()
-frame.show()
+frame.visible = true

@@ -1,7 +1,8 @@
-def builder = new NodeBuilder()                          //#1
-def ulcDate = new Date(107, 0, 1)
-def invoices = builder.invoices {                         //#2
-    invoice(date: ulcDate) {                              //#3
+def builder = new NodeBuilder()                            //#1
+def ulcDate = Date.parse('yyyy-MM-dd', "2015-01-01")
+def otherDate = Date.parse('yyyy-MM-dd', '2015-02-02')
+def invoices = builder.invoices {                          //#2
+    invoice(date: ulcDate) {                                 //#3
         item(count: 5) {
             product(name: 'ULC', dollar: 1499)
         }
@@ -9,14 +10,15 @@ def invoices = builder.invoices {                         //#2
             product(name: 'Visual Editor', dollar: 499)
         }
     }
-    invoice(date: new Date(106, 1, 2)) {
+    invoice(date: otherDate) {
         item(count: 4) {
             product(name: 'Visual Editor', dollar: 499)
         }
     }
 }
 
-soldAt = invoices.grep {                                 //|#4
-    it.item.product.any { it.'@name' == 'ULC' }        //|#4
-}.'@date'                                             //|#4
+soldAt = invoices.grep {                                   //#4
+    it.item.product.any { it.'@name' == 'ULC' }              //#4
+}.'@date'                                                  //#4
 assert soldAt == [ulcDate]
+println invoices

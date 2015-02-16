@@ -10,9 +10,8 @@ html.html {
             for (line in ['Produce HTML', 'Produce XML', 'Have some fun']) {
                 input(type: 'checkbox', checked: 'checked', id: line, '')
                 label(for: line, line)
-                br('')
+                br()
             }
         }
     }
 }
-

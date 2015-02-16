@@ -1,7 +1,7 @@
 import groovy.swing.SwingBuilder
 
 swing = new SwingBuilder()
-frame = swing.frame(title: 'Demo') {
+frame = swing.frame(title:'Demo') {
     menuBar {
         menu('File') {
             menuItem 'New'
@@ -11,8 +11,8 @@ frame = swing.frame(title: 'Demo') {
     panel {
         label 'Label 1'
         slider()
-        comboBox(items: ['one', 'two', 'three'])
+        comboBox(items:['one','two','three'])
     }
 }
 frame.pack()
-frame.show()
+frame.visible = true

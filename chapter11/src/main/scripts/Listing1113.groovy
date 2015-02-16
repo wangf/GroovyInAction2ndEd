@@ -13,4 +13,4 @@ frame = swing.frame(title: 'Layout Demo') {
     }
 }
 frame.pack()
-frame.show()
+frame.visible = true

@@ -1,8 +1,13 @@
-writer = new StringWriter()
-builder = new groovy.xml.MarkupBuilder(writer)       //#1                            
-invoices = builder.invoices {
+import groovy.xml.MarkupBuilder
+
+TimeZone.default = TimeZone.getTimeZone("CET")
+
+def writer = new StringWriter()
+def builder = new MarkupBuilder(writer)                    //#1
+builder.invoices {
     for (day in 1..3) {
-        invoice(date: new Date(106, 0, day)) {
+        def invDate = Date.parse('yyyy-MM-dd', "2015-01-0$day")
+        invoice(date: invDate) {
             item(count: day) {
                 product(name: 'ULC', dollar: 1499)
             }
@@ -10,21 +15,19 @@ invoices = builder.invoices {
     }
 }
 
-result = writer.toString().replaceAll("\r", "")
-
-assert "\n" + result == """
+assert "\n" + writer.toString() == """
 <invoices>
-  <invoice date='Sun Jan 01 00:00:00 CET 2006'>
+  <invoice date='Thu Jan 01 00:00:00 CET 2015'>
     <item count='1'>
       <product name='ULC' dollar='1499' />
     </item>
   </invoice>
-  <invoice date='Mon Jan 02 00:00:00 CET 2006'>
+  <invoice date='Fri Jan 02 00:00:00 CET 2015'>
     <item count='2'>
       <product name='ULC' dollar='1499' />
     </item>
   </invoice>
-  <invoice date='Tue Jan 03 00:00:00 CET 2006'>
+  <invoice date='Sat Jan 03 00:00:00 CET 2015'>
     <item count='3'>
       <product name='ULC' dollar='1499' />
     </item>

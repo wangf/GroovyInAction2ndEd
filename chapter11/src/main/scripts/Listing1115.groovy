@@ -1,115 +1,76 @@
+import groovy.beans.Bindable
+import groovy.beans.ListenerList
+import groovy.beans.Vetoable
 import groovy.swing.SwingBuilder
 
-import javax.swing.*
-import javax.swing.BorderFactory as BF
-import javax.swing.WindowConstants as WC
-import java.awt.*
-import java.awt.BorderLayout as BL
-//#|1
-//#|1
-//#|1
+import java.awt.event.ActionEvent
+import java.awt.event.ActionListener
+import java.beans.PropertyVetoException
+
+class Person implements ActionListener {
+    @Bindable
+    String name
+    @Vetoable
+    int age
+
+    void actionPerformed(ActionEvent e) {
+        if (e.actionCommand == name) setAge(age + 1)
+    }
+}
+
+class BirthdayNotifier {
+    @ListenerList
+    List<ActionListener> listeners
+
+    def triggerBirthday(name) {
+        def event = new ActionEvent(this, 0, name)
+        fireActionPerformed(event)
+    }
+}
+
+data = [
+        new Person(name: 'Anthony', age: 51),
+        new Person(name: 'Greg', age: 42),
+        new Person(name: 'Jeff', age: 60),
+        new Person(name: 'Murray', age: 54)
+]
+
 swing = new SwingBuilder()
-
-paint = swing.action(
-        name: 'Paint',
-        closure: this.&paintGraph,          //#2
-        mnemonic: 'P',
-        accelerator: 'ctrl P'
-)
-about = swing.action(
-        name: 'About',
-        closure: this.&showAbout,
-        mnemonic: 'A',
-        accelerator: 'F1'
-)
-
-frame = swing.frame(title: 'Plotter',
-        location: [100, 100], size: [300, 300],     //#3
-        defaultCloseOperation: WC.EXIT_ON_CLOSE) {
-    menuBar() {
-        menu(mnemonic: 'A', 'Action') {
-            menuItem(action: paint)
-        }
-        glue()                              //#4
-        menu(mnemonic: 'H', 'Help') {
-            menuItem(action: about)
-        }
-    }
-    panel(border: BF.createEmptyBorder(6, 6, 6, 6)) {
-        borderLayout()
-        vbox(constraints: BL.NORTH) {
-            hbox {
-                hstrut(width: 10)
-                label 'f(x) = '
-                textField(id: 'function', action: paint, 'Math.sin(x)')
-                button(action: paint)
-            }
-        }
-        vbox(constraints: BL.WEST) {
-            labeledSpinner('max', 1d)       //#5
-            20.times { swing.vglue() }
-            labeledSpinner('min', -1d)
-        }
-        vbox(constraints: BL.CENTER,
-                border: BF.createTitledBorder('Function Plot')) {
-            panel(id: 'canvas')
-        }
-        hbox(constraints: BL.SOUTH) {
-            hstrut(width: 10)
-            labeledSpinner('from', 0d)
-            10.times { swing.hglue() }   //#6 
-            labeledSpinner('to', 6.3d)
+frame = swing.frame(title: 'Binding Demo') {
+    table {
+        tableModel(list: data, id: 'tableModel') {
+            propertyColumn(header: 'Name', propertyName: 'name',
+                    editable: true)
+            propertyColumn(header: 'Age', propertyName: 'age',
+                    type: Integer, editable: true)
         }
     }
 }
-frame.show()
+frame.pack()
+frame.visible = true
 
-// implementation methods 
-
-def labeledSpinner(label, value) {          //#7       
-    swing.label(label)
-    swing.hstrut()
-    swing.spinner(id: label, stateChanged: this.&paintGraph,
-            model: swing.spinnerNumberModel(value: value)
-    )
-}
-
-def paintGraph(event) {                     //#8
-    calc = new Dynamo(swing.function.text)
-    gfx = swing.canvas.graphics
-    int width = swing.canvas.size.width
-    int height = swing.canvas.size.height
-    gfx.color = new Color(255, 255, 150)
-    gfx.fillRect(0, 0, width, height)
-    gfx.color = Color.blue
-    xFactor = (swing.to.value - swing.from.value) / width
-    yFactor = height / (swing.max.value - swing.min.value)
-    int ceiling = height + swing.min.value * yFactor
-    int lastY = calc.f(swing.from.value) * yFactor
-    for (x in (1..width)) {                  //#9
-        int y = calc.f(swing.from.value + x * xFactor) * yFactor
-        gfx.drawLine(x - 1, ceiling - lastY, x, ceiling - y)
-        lastY = y
+notifier = new BirthdayNotifier()
+data.each {
+    it.addPropertyChangeListener { evt ->
+        println "$evt.newValue has replaced $evt.oldValue"              //#1
     }
-}
-
-void showAbout(event) {                     //#10
-    JOptionPane.showMessageDialog(frame,
-            '''A Function Plotter
-that serves as a SwingBuilder example for
-Groovy in Action''')
-}
-// Keep all dynamic invocation handling in one place.
-class Dynamo {
-    static final GroovyShell SHELL = new GroovyShell()
-    Script functionScript
-
-    Dynamo(String function) {
-        functionScript = SHELL.parse(function)  //#11
+    it.addVetoableChangeListener { evt ->
+        if (evt.newValue < 0)                                           //#2
+            throw new PropertyVetoException("Can't have -ve age", evt)    //#2
+        else                                                            //#2
+            println "$evt.source.name now has age $evt.newValue"          //#2
     }
-
-    Object f(x) {
-        functionScript.x = x
-        return functionScript.run()             //#12
-    }
+    notifier.addActionListener(it)                                    //#3
 }
+
+try {
+    data[0].age = -99                                                 //#4
+} catch (e) {
+    println "Change ignored: $e.message"
+}
+data[1].name = 'Sam'                                                //#5
+data[1].age = 36                                                    //#5
+
+notifier.triggerBirthday(data[2].name)                              //#6
+
+swing.tableModel.fireTableDataChanged()

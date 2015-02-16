@@ -1,32 +1,33 @@
-System.setProperty("user.timezone", "CET")
+TimeZone.default = TimeZone.getTimeZone("CET")                 //#A
+
 def builder = new NodeBuilder()
 def invoices = builder.invoices {
-    for (day in 1..3) {                               //#1
-        invoice(date: new Date(107, 0, day)) {
-            item(count: day) {
-                product(name: 'ULC', dollar: 1499)
-            }
-        }
+    for (day in 1..3) {                                          //#B
+        def invDate = Date.parse('yyyy-MM-dd', "2015-01-0$day")
+        invoice(date: invDate) {                                   //#1
+            item(count: day) {                                       //#1
+                product(name: 'ULC', dollar: 1499)                     //#1
+            }                                                        //#1
+        }                                                          //#1
     }
 }
 
 def writer = new StringWriter()
-invoices.print(new PrintWriter(writer))              //#2
-def result = writer.toString().replaceAll("\r", "")   //#3
+invoices.print(new PrintWriter(writer))                        //#C
 
-assert "\n" + result == """
+assert writer.toString() == """\
 invoices() {
-  invoice(date:Mon Jan 01 00:00:00 CET 2007) {
+  invoice(date:Thu Jan 01 00:00:00 CET 2015) {
     item(count:1) {
       product(name:'ULC', dollar:1499)
     }
   }
-  invoice(date:Tue Jan 02 00:00:00 CET 2007) {
+  invoice(date:Fri Jan 02 00:00:00 CET 2015) {
     item(count:2) {
       product(name:'ULC', dollar:1499)
     }
   }
-  invoice(date:Wed Jan 03 00:00:00 CET 2007) {
+  invoice(date:Sat Jan 03 00:00:00 CET 2015) {
     item(count:3) {
       product(name:'ULC', dollar:1499)
     }
