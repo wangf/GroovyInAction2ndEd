@@ -1,0 +1,10 @@
+groovy.lang/DelegatesTo.java:61:     * @since 2.4.0 - type()
+groovy.transform/SelfType.java:72: * @since 2.4.0 (See Traits) - new 
+groovy.transform/ToString.java:145:     * @since 2.4.0 - includeSuperProperties()
+org.codehaus.groovy.classgen/asm/BytecodeDumper.java:29: * @since 2.4.0  - new
+org.codehaus.groovy.classgen/asm/sc/StaticCompilationMopWriter.java:32: * @since 2.4.0 - new
+org.codehaus.groovy.classgen/asm/sc/StaticPropertyAccessHelper.java:33: * @since 2.4.0 - new
+org.codehaus.groovy.runtime/DefaultGroovyMethods.java:1037:     * @since 2.4.0 - unique(), toUnique(), eachWithIndex(), each(), grep(), collate(), findAll(), contains(), containsAll(), split(), getIndices(), toSpreadMap(), withIndex(), indexed(), toSorted(), head(), tail(), init(), take(), takeRight(), drop(), dropRight(), takeWhile(), dropWhile(), asCollection(), plus(), multiply(), intersect(), disjoint(), minus(), flatten(), leftShift(), toSet(), swap(), removeAt(), removeElement()
+org.codehaus.groovy.runtime/IOGroovyMethods.java:1614:     * @since 2.4.0 - withCloseable()
+org.codehaus.groovy.transform/sc/TemporaryVariableExpression.java:32: * @since 2.4.0 - new
+org.codehaus.groovy.transform/trait/Traits.java:292:     * @since 2.4.0 - new in 2.3, enhanced in 2.4
