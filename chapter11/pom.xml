@@ -18,7 +18,6 @@
         <dependency>
             <groupId>org.codehaus.groovyfx</groupId>
             <artifactId>groovyfx</artifactId>
-            <version>0.4.0</version>
         </dependency>
     </dependencies>
 </project>

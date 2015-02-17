@@ -18,34 +18,26 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
         </dependency>
         <dependency>
             <groupId>com.gmongo</groupId>
             <artifactId>gmongo</artifactId>
-            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-kernel</artifactId>
-            <version>1.9.2</version>
         </dependency>
         <dependency>
             <groupId>com.tinkerpop.gremlin</groupId>
             <artifactId>gremlin-groovy</artifactId>
-            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>com.tinkerpop.blueprints</groupId>
             <artifactId>blueprints-neo4j-graph</artifactId>
-            <version>2.4.0</version>
         </dependency>
         <dependency>
             <groupId>com.tinkerpop.blueprints</groupId>
             <artifactId>blueprints-core</artifactId>
-            <version>2.4.0</version>
         </dependency>
-        
     </dependencies>
-
 </project>
