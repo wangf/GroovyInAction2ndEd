@@ -1,23 +1,39 @@
 import static groovy.io.FileType.DIRECTORIES
 import static groovy.io.FileType.FILES
 
-inputDir = new File('/Users/erikp/test/groovy')
+def topDir = new File('../chap09')
+def srcDir = new File(topDir, 'src')
 
 dirs = []
-inputDir.eachDir { dirs << it.name }                            //#A
-assert ['.git', 'doc', 'src'] == dirs
+srcDir.eachDir { dirs << it.name }                                  //#A
+assert ['main', 'test'] == dirs
 
 dirs = []
-inputDir.eachDirRecurse { dirs << it.name }                     //#B
-assert ['.git', 'doc', 'src', 'groovy', 'gina', 'java'] == dirs
+topDir.eachDirRecurse { dirs << it.name }                           //#B
+assert dirs.containsAll(['gradle', 'src', 'main'])
+assert dirs.containsAll(['groovy', 'services', 'wrapper'])
 
 dirs = []
-inputDir.eachDirMatch(~/^(?!\.git).*/) { dirs << it.name }       //#C
-assert ['doc', 'src'] == dirs
+topDir.eachDirMatch(~/[^l]*/) { dirs << it.name }                   //#C
+assert dirs == ['src']
 
 files = []
-inputDir.eachFile { files << it.name }                           //#D
-assert files.contains('LICENCE.txt')
+topDir.eachFile { files << it.name }                                //#D
+assert files.contains('Listing_09_01_ToStringDetective.groovy')
 assert files.contains('src')
+
 files = []
-inputDir.eachFile(FILES) { files << it.name }                    
+topDir.eachFile(FILES) { files << it.name }                         //#E
+assert files.contains('Listing_09_01_ToStringDetective.groovy')
+
+count = 0
+srcDir.eachFileRecurse { if (it.directory) count++ }                //#F
+assert 9 == count
+
+count = 0
+srcDir.eachFileRecurse(DIRECTORIES) { count++ }                     //#G
+assert 9 == count
+
+files = []
+topDir.eachFileMatch(~/Listing_09_01.*/) { files << it.name }       //#H
+assert ['Listing_09_01_ToStringDetective.groovy'] == files

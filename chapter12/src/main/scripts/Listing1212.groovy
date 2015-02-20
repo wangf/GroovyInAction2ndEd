@@ -1,11 +1,11 @@
-import java.util.concurrent.BlockingQueue
-import java.util.concurrent.LinkedBlockingQueue
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
-Thread.metaClass.'static'.getName = { Thread.currentThread().name }  //#A
+Thread.metaClass.'static'.getName = { Thread.currentThread().name } //#A
 
-BlockingQueue sharedQueue = [] as LinkedBlockingQueue                //#B
+BlockingQueue sharedQueue = [] as LinkedBlockingQueue               //#B
 
-Thread.start('push') {                                               //#C
+Thread.start('push') {                                              //#C
     10.times {
         try {
             println("${Thread.name}\t: ${it}")
@@ -15,11 +15,10 @@ Thread.start('push') {                                               //#C
     }
 }
 
-Thread.start('pop') {                                                //#D
+Thread.start('pop') {                                               //#D
     for (i in 0..9) {
         sleep 200
         println("${Thread.name}\t: ${sharedQueue.take()}")
 
     }
 }
-

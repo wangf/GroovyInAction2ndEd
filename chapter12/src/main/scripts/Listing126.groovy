@@ -1,6 +1,6 @@
 example = new File('data/example.txt')
 
-lines = ['line one','line two','line three']
+lines = ['line one', 'line two', 'line three']
 assert lines == example.readLines()
 
 example.eachLine {
@@ -9,16 +9,12 @@ example.eachLine {
 
 hex = []
 example.eachByte { hex << it }
-assert hex.size() == example.size()
+assert hex.size() == example.length()
 
-example.splitEachLine(/\s/){
+example.splitEachLine(/\s/) {
     assert 'line' == it[0]
 }
 
 example.withReader { reader ->
     assert 'line one' == reader.readLine()
-}
-
-example.withInputStream { is ->
-    assert 'line one' == is.readLine()
 }

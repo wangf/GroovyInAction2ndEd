@@ -1,7 +1,7 @@
 def outputBuffer = new StringBuffer()
-def errorBuffer  = new StringBuffer()
+def errorBuffer = new StringBuffer()
 
-zipProcess   = 'gzip -c'.execute()
+zipProcess = 'gzip -c'.execute()
 unzipProcess = 'gunzip -c'.execute()
 
 unzipProcess.consumeProcessOutput(outputBuffer, errorBuffer)
