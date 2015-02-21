@@ -7,4 +7,4 @@ def clazz = shell.evaluate('''
 ''')
 assert clazz.name == "MyClass"
 def instance = clazz.newInstance()       //#B
-assert instance.method() == "value"      //#c
+assert instance.method() == "value"      //#C

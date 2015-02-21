@@ -6,5 +6,5 @@ def shell = new GroovyShell(binding)                       //#2
 def expression = "mass * velocity ** 2 / 2"                //#2
 assert shell.evaluate(expression) == 1252.814              //#2
 
-binding.setVariable("mass", 25.4)                         //#3
-assert shell.evaluate(expression) == 1426.972             //#3
+binding.setVariable("mass", 25.4)                          //#3
+assert shell.evaluate(expression) == 1426.972              //#3

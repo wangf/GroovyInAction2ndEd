@@ -1,0 +1,18 @@
+
+<lang:groovy id="maxareainfo3">
+    <lang:inline-script>
+        import spring.common.Shape
+        import spring.common.ShapeInfo
+
+        class SuffixMaxAreaInfo implements ShapeInfo {
+        String suffix
+        void displayInfo(Shape s1, Shape s2) {
+        print "The shape with the biggest area is: "
+        if (s1.area() > s2.area()) println s1 + ":" + suffix
+        else println s2 + ":" + suffix
+        }
+        }
+    </lang:inline-script>
+    <lang:property name="suffix"
+    value="Did you guess correctly?"/>
+</lang:groovy>

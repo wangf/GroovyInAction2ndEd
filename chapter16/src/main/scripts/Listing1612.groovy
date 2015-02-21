@@ -1,13 +1,21 @@
-import groovy.transform.ThreadInterrupt
+import groovy.transform.ToString
 import org.codehaus.groovy.control.CompilerConfiguration
-import org.codehaus.groovy.control.customizers.ASTTransformationCustomizer
+import org.codehaus.groovy.control.customizers.*
 
-def conf = new CompilerConfiguration() //# 1
-def customizer = new ASTTransformationCustomizer(ThreadInterrupt) //# 2
-conf.addCompilationCustomizers(customizer) //# 3
-def shell = new GroovyShell(conf) //# 4
-def t = Thread.start {
-    def value = shell.evaluate('while (true){}') //# 5
+def conf = new CompilerConfiguration()
+def astCustomizer = new ASTTransformationCustomizer(ToString)       //#1
+def sourceAwareCustomizer =
+        new SourceAwareCustomizer(astCustomizer)                        //#2
+sourceAwareCustomizer.baseNameValidator = {                         //#3
+name -> name.endsWith 'Bean'
 }
-t.join(1000) //# 6
-t.interrupt() //# 7
+conf.addCompilationCustomizers(sourceAwareCustomizer)
+
+def gcl = new GroovyClassLoader(getClass().classLoader, conf)       //#4
+def clazz = gcl.parseClass '''
+class MrBean { String first, last }
+''', 'MrBean.groovy'
+def result = clazz.newInstance()
+result.first = 'Rowan'
+result.last = 'Atkinson'
+assert result.toString() == 'MrBean(Rowan, Atkinson)'

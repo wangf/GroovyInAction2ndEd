@@ -1,4 +1,4 @@
-package com.manning.groovyinaction;
+package regina;
 
 /**
  * @author Gordon Dickens (gordonad)

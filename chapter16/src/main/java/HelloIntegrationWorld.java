@@ -1,5 +1,3 @@
-package com.manning.groovyinaction;
-
 import groovy.lang.GroovyShell;
 
 public class HelloIntegrationWorld {
