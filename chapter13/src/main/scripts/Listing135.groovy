@@ -1,54 +1,31 @@
-import com.manning.groovyinaction.AthleteDAO
-import com.manning.groovyinaction.DbHelper
+import util.DbUtil
 
-class AthleteApplication {
-    def helper     = new DbHelper()                 //#1
-    def athleteDAO = new AthleteDAO(db: helper.db)  //#1
-    def sortBy     = 'athleteId'                    //#1
-    //#1
-    def init() {                                    //#1
-        helper.executeDdl(athleteDAO)               //#1
-    }                                               //#1
-    def exit() { System.exit(0) }
-    def sort(field) {
-        sortBy = field.join(',')
-        list()
-    }
-    def create(List args) {
-        athleteDAO.create(args)
-        list()
-    }
-    def list() {
-        def athletes = athleteDAO.all(sortBy)
-        println athletes.size() + ' Athlete(s) in DB: '
-        println 'id firstname  lastname     dateOfBirth'
-        athletes.each { athlete ->
-            println athlete.athleteId +': ' +
-                    athlete.firstname.padRight(10) + ' ' +
-                    athlete.lastname.padRight(12)  + ' ' +
-                    athlete.dateOfBirth
-        }
-    }
-    def update(id, field, newValue){
-        def count = athleteDAO.update(field, newValue, id)
-        println count +' row(s) updated'
-        list()
-    }
-    def delete(id) {
-        def count = athleteDAO.delete(*id)
-        println count +' row(s) deleted'
-        list()
-    }
-    def mainLoop() {                                         //#2
-        while(true) {
-            println 'commands: create list update delete sort exit'
-            def input = System.in.readLine().tokenize()
-            def method = input.remove(0)                     //#A
-            invokeMethod(method, input)                      //#A
-        }
+def sql = DbUtil.create()
+DbUtil.populate(sql)
+
+def expected = ['Paul Tergat', 'Khalid Khannouchi', 'Ronaldo da Costa']
+
+def rowNum = 0
+sql.query('SELECT firstname, lastname FROM Athlete') { resultSet ->   //#1
+    while (resultSet.next()) {                                          //#2
+        def first = resultSet.getString(1)                                //#3
+        def last = resultSet.getString('lastname')                        //#3
+        assert expected[rowNum++] == "$first $last"
     }
 }
 
-app = new AthleteApplication()                   //#3
-app.init()                                       //#3
-app.mainLoop()                                   //#3
+rowNum = 0
+sql.eachRow('SELECT firstname, lastname FROM Athlete') { row ->       //#4
+    def first = row[0]                                                  //#5
+    def last = row.lastname                                             //#5
+    assert expected[rowNum++] == "$first $last"
+}
+
+def first = sql.firstRow('SELECT lastname, dateOfBirth FROM Athlete') //#6
+assert first.values().sort().join(',') == 'Tergat,1969-06-17'         //#5
+
+List athletes = sql.rows('SELECT firstname, lastname FROM Athlete')   //#7
+assert athletes.size() == 3
+assert athletes.collect { "$it.FIRSTNAME ${it[-1]}" } == expected     //#5
+
+assert sql.firstRow('SELECT COUNT(*) AS num FROM Athlete').num == 3   //#8

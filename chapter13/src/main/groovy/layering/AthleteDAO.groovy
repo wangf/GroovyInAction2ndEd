@@ -1,7 +1,6 @@
-package com.manning.groovyinaction
+package layering
 
 class AthleteDAO extends DataAccessObject {
-
     List getFields() {
         return [
                 'firstname', 'VARCHAR(64)',
