@@ -1,7 +1,5 @@
-import groovy.util.logging.Slf4j
-
-@Grab('org.jboss.resteasy:resteasy-client:3.0.4.Final')
-@GrabExclude('commons-logging:commons-logging')
+@Grab('org.jboss.resteasy:resteasy-client:3.0.10.Final')
+@Grab(group='org.apache.httpcomponents', module='httpclient', version='4.4')
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path

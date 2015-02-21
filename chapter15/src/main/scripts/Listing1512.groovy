@@ -1,7 +1,7 @@
 import groovy.text.SimpleTemplateEngine as STE
 import groovy.xml.Namespace
 
-def file = new File('conv.templ.xml')               //#A
+def file = new File('data/conv.templ.xml')                 //#A
 def template = new STE().createTemplate(file)
 def params = [from: 'USD', to: 'EUR']
 def request = template.make(params).toString().getBytes('UTF-8')
@@ -10,8 +10,8 @@ def url = 'http://www.webservicex.net/CurrencyConvertor.asmx'
 def conn = new URL(url).openConnection()
 def reqProps = [
         'Content-Type': 'text/xml; charset=UTF-8',                   //#|B
-        'SOAPAction': 'http://www.webserviceX.NET/ConversionRate', //#|B
-        'Accept': 'application/soap+xml, text/*'               //#|B
+        'SOAPAction'  : 'http://www.webserviceX.NET/ConversionRate', //#|B
+        'Accept'      : 'application/soap+xml, text/*'               //#|B
 ]
 reqProps.each { key, value -> conn.addRequestProperty(key, value) }
 

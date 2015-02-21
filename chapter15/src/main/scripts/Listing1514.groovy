@@ -1,4 +1,4 @@
-@Grab('com.github.groovy-wslite:groovy-wslite:0.8.0')
+@Grab('com.github.groovy-wslite:groovy-wslite:1.1.0')
 import wslite.soap.SOAPClient
 
 def url = 'http://www.webservicex.net/CurrencyConvertor.asmx?WSDL'

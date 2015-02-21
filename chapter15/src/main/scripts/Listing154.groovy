@@ -1,6 +1,4 @@
-@Grab('org.codehaus.groovy.modules.http-builder:http-builder:0.6')
-@GrabExclude('commons-logging:commons-logging')
-
+@Grab('org.codehaus.groovy.modules.http-builder:http-builder:0.7.2')
 import groovyx.net.http.RESTClient
 
 def base = 'http://jira.codehaus.org/rest/api/latest/'
