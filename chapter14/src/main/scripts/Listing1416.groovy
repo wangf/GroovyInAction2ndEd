@@ -15,8 +15,8 @@ def binding = [scale: 1, weeks: []]
 use(DOMCategory) {
     xpath.evaluate('//week', plan, NODESET).each { week ->     //#1
         binding.weeks << [
-                total: (int) xpath.evaluate('sum(task/@total)', week, NUMBER),
-                done: (int) xpath.evaluate('sum(task/@done)', week, NUMBER),
+                total   : (int) xpath.evaluate('sum(task/@total)', week, NUMBER),
+                done    : (int) xpath.evaluate('sum(task/@done)', week, NUMBER),
                 capacity: week.'@capacity'.toInteger()
         ]
     }
@@ -30,3 +30,4 @@ def template = new STE().createTemplate(templateFile)   //#3
 new File('data/XPathGroovyPlans.html').withWriter {
     it << template.make(binding)
 }
+

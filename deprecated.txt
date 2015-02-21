@@ -1,38 +1,48 @@
-groovy.groovy/lang/Delegate.java:86: * By default, methods of the delegate type marked as {@code @Deprecated} are
-groovy.lang/Delegate.java:103: * {@code @Deprecated} in {@code Date}.
-groovy.lang/Delegate.java:140:     * @return true if owner class should delegate to methods annotated with @Deprecated
-groovy.lang/Mixin.java:36:@Deprecated
-groovy.time/TimeCategory.java:69:    @Deprecated
-groovy.util/CliBuilder.groovy:188:    @Deprecated
-groovy.util/FactoryBuilderSupport.java:807:    @Deprecated
-groovy.util/GroovyCollections.java:73:    @Deprecated
-org.codehaus.groovy.ast/MixinASTTransformation.java:38:@Deprecated
-org.codehaus.groovy.ast/stmt/Statement.java:40:    // TODO @Deprecated
-org.codehaus.groovy.ast/stmt/Statement.java:46:    // TODO @Deprecated
-org.codehaus.groovy.ast/tools/GenericsUtils.java:71:    @Deprecated
-org.codehaus.groovy.classgen/AnnotationVisitor.java:264:        // TODO track Deprecated usage and give a warning?
-org.codehaus.groovy.classgen/asm/BinaryExpressionMultiTypeDispatcher.java:124:    @Deprecated
-org.codehaus.groovy.classgen/asm/BytecodeHelper.java:591:    @Deprecated
-org.codehaus.groovy.classgen/ExtendedVerifier.java:154:        if (visited.getClassNode().isResolved() && visited.getClassNode().getName().equals("java.lang.Deprecated")) {
-org.codehaus.groovy.classgen/Verifier.java:495:    @Deprecated
-org.codehaus.groovy.runtime/DefaultGroovyMethods.java:2677:    @Deprecated
-org.codehaus.groovy.runtime/metaclass/MetaClassRegistryImpl.java:215:                if (Modifier.isStatic(mod) && Modifier.isPublic(mod) && org.codehaus.groovy.runtime/StringGroovyMethods.java:232:    @Deprecated
-org.codehaus.groovy.runtime/typehandling/DefaultTypeTransformation.java:93:    @Deprecated
-org.codehaus.groovy.tools/DgmConverter.java:58:            if (method.getCachedMethod().getAnnotation(Deprecated.class) != null)
-org.codehaus.groovy.tools/FileSystemCompiler.java:353:    @Deprecated
-org.codehaus.groovy.transform/AbstractASTTransformation.java:272:    @Deprecated
-org.codehaus.groovy.transform/AbstractASTTransformUtil.java:34:@Deprecated
-org.codehaus.groovy.transform/DelegateASTTransformation.java:75:    private static final ClassNode DEPRECATED_TYPE = make(Deprecated.class);
-org.codehaus.groovy.transform/ImmutableASTTransformation.java:134:        // temporarily have weaker check which allows for old Deprecated Annotation
-org.codehaus.groovy.transform/stc/StaticTypeCheckingSupport.java:54:    protected static final ClassNode Deprecated_TYPE = makeWithoutCaching(Deprecated.class);
-org.codehaus.groovy.transform/stc/StaticTypeCheckingVisitor.java:1461:    @Deprecated
-./src/spec/doc/core-metaprogramming.adoc:1199:|deprecated|false|If true, also delegates methods annotated with @Deprecated|
-./src/spec/doc/core-metaprogramming.adoc:1351:Deprecated. Consider using traits instead.
-./src/spec/test/ClassDesignASTTransformsTest.groovy:62:    @Deprecated
-./src/spec/test/ClassDesignASTTransformsTest.groovy:66:    @Deprecated
-./src/spec/test/ClassDesignASTTransformsTest.groovy:78:d.bar() // fails because of @Deprecated
-./subprojects/groovy-nio/src/main/java/org/codehaus/groovy/runtime/NioGroovyMethods.java:1754:    @Deprecated
-./subprojects/groovy-sql/src/main/java/groovy/sql/Sql.java:4381:    @Deprecated
-./subprojects/groovy-swing/src/main/groovy/groovy/swing/SwingBuilder.groovy:402:    @Deprecated
-./subprojects/groovy-test/src/main/java/groovy/util/GroovyAssert.java:28:@Deprecated
-./subprojects/groovy-xml/src/main/java/groovy/util/XmlSlurper.java:157:    @Deprecated
+groovy.groovy.lang.Delegate.java:86: * By default, methods of the delegate type marked as {@code @Deprecated} are
+
+groovy.lang.Delegate.java:103: * {@code @Deprecated} in {@code Date}.
+groovy.lang.Delegate.java:140:     * @return true if owner class should delegate to methods annotated with @Deprecated
+
+groovy.lang.Mixin.java:36:@Deprecated
+
+groovy.time.TimeCategory.java:69:    @Deprecated
+
+groovy.util.CliBuilder.groovy:188:    @Deprecated
+groovy.util.FactoryBuilderSupport.java:807:    @Deprecated
+groovy.util.GroovyCollections.java:73:    @Deprecated
+
+org.codehaus.groovy.ast.MixinASTTransformation.java:38:@Deprecated
+org.codehaus.groovy.ast.stmt.Statement.java:40:    // TODO @Deprecated
+org.codehaus.groovy.ast.stmt.Statement.java:46:    // TODO @Deprecated
+org.codehaus.groovy.ast.tools.GenericsUtils.java:71:    @Deprecated
+
+org.codehaus.groovy.classgen.AnnotationVisitor.java:264:        // TODO track Deprecated usage and give a warning?
+org.codehaus.groovy.classgen.asm.BinaryExpressionMultiTypeDispatcher.java:124:    @Deprecated
+org.codehaus.groovy.classgen.asm.BytecodeHelper.java:591:    @Deprecated
+org.codehaus.groovy.classgen.ExtendedVerifier.java:154:        if (visited.getClassNode().isResolved() && visited.getClassNode().getName().equals("java.lang.Deprecated")) {
+org.codehaus.groovy.classgen.Verifier.java:495:    @Deprecated
+
+org.codehaus.groovy.runtime.DefaultGroovyMethods.java:2677:    @Deprecated
+org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.java:215:                if (Modifier.isStatic(mod) && Modifier.isPublic(mod) && org.codehaus.groovy.runtime.StringGroovyMethods.java:232:    @Deprecated
+org.codehaus.groovy.runtime.typehandling.DefaultTypeTransformation.java:93:    @Deprecated
+
+org.codehaus.groovy.tools.DgmConverter.java:58:            if (method.getCachedMethod().getAnnotation(Deprecated.class) != null)
+org.codehaus.groovy.tools.FileSystemCompiler.java:353:    @Deprecated
+
+org.codehaus.groovy.transform.AbstractASTTransformation.java:272:    @Deprecated
+org.codehaus.groovy.transform.AbstractASTTransformUtil.java:34:@Deprecated
+org.codehaus.groovy.transform.DelegateASTTransformation.java:75:    private static final ClassNode DEPRECATED_TYPE = make(Deprecated.class);
+org.codehaus.groovy.transform.ImmutableASTTransformation.java:134:        // temporarily have weaker check which allows for old Deprecated Annotation
+org.codehaus.groovy.transform.stc.StaticTypeCheckingSupport.java:54:    protected static final ClassNode Deprecated_TYPE = makeWithoutCaching(Deprecated.class);
+org.codehaus.groovy.transform.stc.StaticTypeCheckingVisitor.java:1461:    @Deprecated
+
+..src.spec.doc.core-metaprogramming.adoc:1199:|deprecated|false|If true, also delegates methods annotated with @Deprecated|
+..src.spec.doc.core-metaprogramming.adoc:1351:Deprecated. Consider using traits instead.
+
+org.codehaus.groovy.runtime.NioGroovyMethods.java:1754:    @Deprecated
+groovy.sql.Sql.java:4381:    @Deprecated
+
+groovy.swing.SwingBuilder.groovy:402:    @Deprecated
+
+groovy.util.GroovyAssert.java:28:@Deprecated
+groovy.util.XmlSlurper.java:157:    @Deprecated

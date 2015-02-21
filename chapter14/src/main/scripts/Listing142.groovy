@@ -1,11 +1,11 @@
 import javax.xml.parsers.DocumentBuilderFactory
+
 import static org.w3c.dom.Node.*
 
 def factory = DocumentBuilderFactory.newInstance()
 def builder = factory.newDocumentBuilder()
-def doc     = builder.parse(new FileInputStream('data/plan.xml'))
-
-def plan    = doc.documentElement
+def doc = builder.parse(new FileInputStream('data/plan.xml'))
+def plan = doc.documentElement
 
 String info(node) {
     switch (node.nodeType) {
@@ -20,12 +20,12 @@ String info(node) {
 }
 
 assert info(plan) == 'element: plan'
-assert plan.childNodes.length == 5
+assert plan.childNodes.length == 5                              //#1
 
-def firstWeek = plan.childNodes.find { it.nodeName == 'week' }  //#1
+def firstWeek = plan.childNodes.find { it.nodeName == 'week' }  //#2
 assert info(firstWeek) == 'element: week'
 
-def firstTask = firstWeek.childNodes.item(1)                    //#2
+def firstTask = firstWeek.childNodes.item(1)                    //#3
 assert info(firstTask) == 'element: task'
 
 def firstTaskText = firstTask.childNodes.item(0)

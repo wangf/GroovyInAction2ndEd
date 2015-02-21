@@ -1,20 +1,46 @@
-import com.manning.groovyinaction.UpdateChecker
-import groovy.xml.DOMBuilder
-import groovy.xml.XmlUtil
-import groovy.xml.dom.DOMCategory
+import groovy.xml.StreamingMarkupBuilder
 
-def doc = DOMBuilder.parse(new FileReader('data/plan.xml'))
-def plan = doc.documentElement
-
-use(DOMCategory) {
-    plan.week[0].task[2]['@done'] = '2'                     // #1
-    plan.week[0].task[2].value = 'time saver'               // #2
-    plan.week[1].task[1].replaceNode {
-        task(done: '0', total: '4', title: 'build web service')
-    }
-    plan.week[1].task[1] + {
-        task(done: '0', total: '1', title: 'build web service client')
+def taskStatus(task) {                                       //#1
+    switch (task.@done.toInteger()) {
+        case 0: return 'scheduled'
+        case 1..<task.@total.toInteger(): return 'in progress'
+        default: return 'finished'
     }
 }
 
-UpdateChecker.check(XmlUtil.serialize(plan))
+def weekStatus(week) {                                       //#2
+    if (week.task.every { taskStatus(it) == 'finished' })
+        return 'finished'
+    if (week.task.any { taskStatus(it) == 'in progress' })
+        return 'in progress'
+    return 'scheduled'
+}
+
+def plan = new XmlSlurper().parse(new File('data/plan.xml')) //#3
+
+Closure markup = {                                           //#4
+    html {
+        head {
+            title('Current Groovy progress')
+            link(rel: 'stylesheet',
+                    type: 'text/css',
+                    href: 'style.css')
+        }
+        body {
+            plan.week.eachWithIndex { week, i ->
+                h1("Week No. $i: ${owner.weekStatus(week)}")
+                dl {
+                    week.task.each { task ->
+                        def status = owner.taskStatus(task)
+                        dt(class: status, task.@title)
+                        dd("(${task.@done}/${task.@total}): $status")
+                    }
+                }
+            }
+        }
+    }
+}
+
+def heater = new StreamingMarkupBuilder().bind(markup)       //#5
+def outfile = new File('data/StreamedGroovyPlans.html')
+outfile.withWriter { it << heater }                           //#6

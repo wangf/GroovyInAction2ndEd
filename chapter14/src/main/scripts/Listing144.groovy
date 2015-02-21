@@ -6,4 +6,3 @@ def firstTask = plan.week[0].task[0]                          // #2
 assert firstTask.name() == 'task'
 assert firstTask.text() == 'easy'
 assert firstTask.@title == 'read XML chapter'
-

@@ -6,9 +6,9 @@ def upcoming = []
 
 def eachStartElement(inputStream, Closure yield) {
     def token = XMLInputFactory.newInstance()
-            .createXMLStreamReader(inputStream)                     //  #A
+            .createXMLStreamReader(inputStream)                       //#A
     try {
-        while (token.hasNext()) {                                // #B
+        while (token.hasNext()) {                                 //#B
             if (token.startElement) yield token
             token.next()
         }

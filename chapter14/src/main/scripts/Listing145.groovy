@@ -9,3 +9,4 @@ assert plan.breadthFirst()*.name().join('->') ==           //|#4
 assert plan.depthFirst()*.name().join('->') ==             //|#4
         'plan->week->task->task->task->week->task->task'       //|#4
 assert plan.depthFirst()*.name() == plan.'**'*.name()      //|#4
+
