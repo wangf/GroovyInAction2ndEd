@@ -1,24 +1,20 @@
-import groovy.mock.interceptor.StubFor
+@Grab('net.java.quickcheck:quickcheck:0.6')
+import static net.java.quickcheck.generator.PrimitiveGenerators.*
+import static java.lang.Math.round
+import static Converter.celsius
 
-def relay(request) {
-    new Farm().getMachines().sort { it.load }[0].send(request)
+class Converter {
+    static celsius(fahrenheit) { (fahrenheit - 32) * 5 / 9 }
 }
 
-def fakeOne = [load: 10, send: { false }]
-def fakeTwo = [load: 5, send: { true }]
-
-def farmStub = new StubFor(Farm)                       //#A
-farmStub.demand.getMachines { [fakeOne, fakeTwo] }    //#B
-farmStub.use {                                         //#C
-    assert relay(null)
+def gen = integers(-40, 240)                         //#1
+def liquidC =  0..100
+def liquidF = 32..212
+100.times {
+    int f = gen.next()                               //#2
+    int c = round(celsius(f))
+    assert c <= f                                    //#3
+    assert c in liquidC == f in liquidF              //#4
 }
 
-//def relay(request) {
-//    new Farm().getMachines().sort { it.load }[0].send(request)
-//}
 
-class Farm {
-    def getMachines() {
-        /* some expensive code here */
-    }
-}
