@@ -1,13 +1,7 @@
-package com.manning.groovyinaction
-
-/**
- * @author Gordon Dickens (gordonad)
- * @since 2013-09-15
- */
 class YahooService {
     static getYearEndClosingUnsafe(String ticker, int year) {
-        def url = "http://ichart.finance.yahoo.com/table.csv?" +
-                "s=$ticker&a=11&b=01&c=$year&d=11&e=31&f=$year&g=m"
+        def url = "http://real-chart.finance.yahoo.com/table.csv?" +
+                "s=$ticker&a=11&b=1&c=$year&d=11&e=31&f=$year&g=d&ignore=.csv"
         def data = url.toURL().text
         return data.split("\n")[1].split(",")[4].toFloat()
     }
@@ -21,4 +15,3 @@ class YahooService {
         }
     }
 }
-
