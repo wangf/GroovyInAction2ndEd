@@ -1,4 +1,4 @@
-def doubleMapValues = { map ->
+def squareMapValues = { map ->
     if (map == null) {
         return null
     }
@@ -7,4 +7,4 @@ def doubleMapValues = { map ->
     }
     return map.values().collect { it * it }
 }
-assert [1, 4, 9] == doubleMapValues([a: 1, b: 2, c: 3])
+assert [1, 4, 9] == squareMapValues([a: 1, b: 2, c: 3])

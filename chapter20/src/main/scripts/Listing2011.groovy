@@ -1,9 +1,7 @@
-import groovy.transform.Synchronized
-
 class Person {
     List addresses
 
-    @Synchronized
+    @groovy.transform.Synchronized
     void setAddresses(List addresses) {
         this.addresses.clear()
         this.addresses.addAll(addresses)

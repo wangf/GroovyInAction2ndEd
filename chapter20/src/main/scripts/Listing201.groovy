@@ -1,16 +1,11 @@
-@Grab('com.github.groovy-wslite:groovy-wslite:0.8.0')
-import wslite.soap.*
 
-def url = 'http://www.webserviceX.NET/CurrencyConvertor.asmx?WSDL'
-def client = new SOAPClient(url)
-def response = client.send {
-    version SOAPVersion.V1_2
-    body {
-        ConversionRate(xmlns: 'http://www.webserviceX.NET/') {
-            FromCurrency('USD')
-            ToCurrency('EUR')
-        }
-    }
-}
-assert response.httpResponse.statusCode == 200
-println response.ConversionRateResponse.ConversionRateResult
+@Grab(group='org.ccil.cowan.tagsoup', module='tagsoup', version='1.2')
+import org.ccil.cowan.tagsoup.Parser
+
+def parser = new XmlParser(new Parser())
+def html = parser.parse("http://manning.com/koenig2")
+
+def twitterUrls = html.body.'**'.a.@href.grep(~/.*twitter.*/)
+println twitterUrls.join("\n")
+
+assert 'http://www.twitter.com/mittie' in twitterUrls

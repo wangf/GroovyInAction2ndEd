@@ -19,5 +19,15 @@
             <groupId>org.codehaus.groovy.modules.scriptom</groupId>
             <artifactId>scriptom</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.ccil.cowan.tagsoup</groupId>
+            <artifactId>tagsoup</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gcontracts</groupId>
+            <artifactId>gcontracts-core</artifactId>
+            <version>1.2.12</version>
+        </dependency>
     </dependencies>
 </project>
