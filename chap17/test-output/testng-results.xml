@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="1" started-at="2015-02-06T16:00:59Z" finished-at="2015-02-06T16:00:59Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="1" started-at="2015-02-06T16:00:59Z" finished-at="2015-02-06T16:00:59Z">
+      <class name="extra_TestNG">
+        <test-method status="PASS" signature="shouldAdd()[pri:0, instance:extra_TestNG@23a5c17d]" name="shouldAdd" duration-ms="1" started-at="2015-02-06T17:00:59Z" finished-at="2015-02-06T17:00:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- shouldAdd -->
+      </class> <!-- extra_TestNG -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

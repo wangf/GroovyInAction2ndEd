@@ -12,15 +12,15 @@ class Listing_17_10_DataDrivenJUnitTest {
 
     @Parameters
     static scenarios() {
-        [                        //#2
-                                 [0, 32, 'Freezing'],
-                                 [20, 68, 'Garden party conditions'],
-                                 [35, 95, 'Beach conditions'],
-                                 [100, 212, 'Boiling']
+        [
+                [0, 32, 'Freezing'],
+                [20, 68, 'Garden party conditions'],
+                [35, 95, 'Beach conditions'],
+                [100, 212, 'Boiling']
         ]*.toArray()
     }
 
-    Listing_17_10_DataDrivenJUnitTest(c, f, scenario) {      //#3
+    Listing_17_10_DataDrivenJUnitTest(c, f, scenario) {
         this.c = c
         this.f = f
         this.scenario = scenario

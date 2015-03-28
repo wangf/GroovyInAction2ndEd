@@ -5,4 +5,6 @@
  * 04-Feb-2015
  */
 
+//Groovy in Action, 2nd Ed.
+
 println( [String, List, File]*.package*.name )
