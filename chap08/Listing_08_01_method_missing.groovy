@@ -3,5 +3,7 @@ class Pretender {
         "called $name with $args"
     }
 }
+
 def bounce = new Pretender()
 assert bounce.hello('world') == 'called hello with [world]'
+

@@ -1,6 +1,6 @@
 class InspectMe {
     int outer(){
-        return inner()        
+        return inner()
     }
     private int inner(){
         return 1
@@ -22,3 +22,4 @@ before InspectMe.outer()
   after  InspectMe.inner()
 after  InspectMe.outer()
 """
+

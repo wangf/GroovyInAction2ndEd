@@ -1,3 +1,4 @@
+
 ArrayList.metaClass.methodMissing = { String name, Object args ->
     assert name.startsWith("findBy")
     assert args.size() == 1
@@ -8,11 +9,11 @@ ArrayList.metaClass.methodMissing = { String name, Object args ->
 }
 
 def data = [
-    [name:'moon',    au: 0.0025],
-    [name:'sun',     au: 1     ],
-    [name:'neptune', au:30     ],
+        [name:'moon',    au: 0.0025],
+        [name:'sun',     au: 1     ],
+        [name:'neptune', au:30     ],
 ]
 
 assert data.findByName('moon')     //#3
-assert data.findByName('sun')      //#4
+assert data.findByName('sun')     //#4
 assert data.findByAu(1)

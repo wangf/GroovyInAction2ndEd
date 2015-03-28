@@ -9,4 +9,6 @@ def propertyMissing(String name) {
 
 assert IIOI +
         IOI ==
-      IOOIO
+        IOOIO
+
+

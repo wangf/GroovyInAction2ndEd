@@ -8,3 +8,5 @@ def one = new DynamicPretender()
 assert one.hello == 'accessed hello'
 one.whatToDo     = { name -> name.size() }          //#3
 assert one.hello == 5
+
+

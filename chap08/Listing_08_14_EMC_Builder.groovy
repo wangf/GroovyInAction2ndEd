@@ -4,15 +4,17 @@ def move(string, distance) {
 
 String.metaClass {
     shift = -1
-    encode  {-> move delegate, shift  }
-    decode  {-> move delegate, -shift }
-    getCode {-> encode() }
-    getOrig {-> decode() }
+    encode { -> move delegate, shift }
+    decode { -> move delegate, -shift }
+    getCode { -> encode() }
+    getOrig { -> decode() }
 }
 
 assert "IBM".encode() == "HAL"
-assert "HAL".orig     == "IBM"
+assert "HAL".orig == "IBM"
 
 def ibm = "IBM"
 ibm.shift = 7
 assert ibm.code == "PIT"
+
+

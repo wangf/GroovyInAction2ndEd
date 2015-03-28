@@ -3,7 +3,7 @@ class NoParens {
         if (metaClass.hasProperty(this, propertyName)) { //#1
             return metaClass.getProperty(this, propertyName)
         }
-       invokeMethod propertyName, null  //#2
+        invokeMethod propertyName, null  //#2
     }
 }
 
