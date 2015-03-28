@@ -1,3 +1,5 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 def benchmark(int repeat, Closure worker) {            //#1
     def start = System.nanoTime()                      //#2
 
@@ -6,9 +8,11 @@ def benchmark(int repeat, Closure worker) {            //#1
     def stop = System.nanoTime()                       //#4
     return stop - start                                //#4
 }
+
 def slow = benchmark(10000) { (int) it / 2 }           //#5
 def fast = benchmark(10000) { it.intdiv(2) }           //#5
-assert fast * 2 < slow                                 //#5
+assert fast * 2 < slow
+
 //#1 Put closures last
 //#2 Some pre-work
 //#3 Call closure the given number of times

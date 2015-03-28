@@ -1,3 +1,5 @@
-def mult  = { x, y -> return x * y }
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
+def mult = { x, y -> return x * y }
 def twoTimes = mult.curry(2)
 assert twoTimes(5) == 10

@@ -1,16 +1,19 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 def a = 1
-while (true) {                                         //#A
+while (true) {            //#A
     a++
-    break                                              //#B
+    break                 //#B
 }
 assert a == 2
 
 for (i in 0..10) {
-    if (i==0)  continue                                //#C
+    if (i == 0) continue   //#C
     a++
-    if (i > 0) break                                   //#D
+    if (i > 0) break      //#D
 }
-assert a==3
+assert a == 3
+
 //#A Do forever
 //#B Forever is over now
 //#C Proceed with 1

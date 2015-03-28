@@ -1,38 +1,31 @@
-assert true                                            //#A
-assert !false                                          //#A
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
 
-assert ('a' =~ /./)                                    //#B
-assert !('a' =~ /b/)                                   //#B
+assert true            //#A
+assert !false          //#A
 
-assert [1]                                             //#C
-assert ![]                                             //#C
+assert ('a'=~/./)    //#B
+assert !('a'=~/b/)   //#B
 
-Iterator iter = [1].iterator()
-assert iter                                            //#D
-iter.next()                                            //#D
-assert !iter                                           //#D
+assert [1]             //#C
+assert ![]             //#C
 
-assert ['a':1]                                         //#E
-assert ![:]                                            //#E
+assert ['a': 1]         //#D
+assert ![:]            //#D
 
-assert 'a'                                             //#F
-assert !''                                             //#F
+assert 'a'             //#E
+assert !''             //#E
 
-assert 1                                               //#G
-assert 1.1                                             //#G
-assert 1.2f                                            //#G
-assert 1.3g                                            //#G
-assert 2L                                              //#G
-assert 3G                                              //#G
-assert !0                                              //#G
+assert 1               //#F
+assert 1.1             //#F
+assert 1.2f            //#F
+assert 1.3g            //#F
+assert 2L              //#F
+assert 3G              //#F
+assert !0              //#F
 
-assert ! null                                          //#H
-assert new Object()                                    //#H
+assert new Object()    //#G
+assert !null           //#G
 
-class AlwaysFalse {
-    boolean asBoolean() { false }                      //#I
-}
-assert ! new AlwaysFalse()                             //#J
 //#A Boolean values are trivial
 //#B Matchers must match
 //#C Collections must be nonempty

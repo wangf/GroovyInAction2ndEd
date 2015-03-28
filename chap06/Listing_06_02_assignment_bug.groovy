@@ -1,26 +1,26 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 def x = 1
 
-if (x == 2) {                                          //#1
+if (x == 2) {                //#1
     assert false
 }
 /*******************
-if (x =  2) {                                          //#2
-   println x
-}
-********************/
-if ((x = 3)) {                                         //#3
-    println x 
+ if (x =  2) {               //#2
+ println x}********************/
+if ((x = 3)) {              //#3
+    println x
 }
 assert x == 3
 
 def store = []
-while (x = x - 1) {                                    //#4
+while (x = x - 1) {         //#4
     store << x
 }
 assert store == [2, 1]
 
-while (x =  2) {                                       //#5
-    println x
+while (x = 1) {
+    println x                //#5
     break
 }
 //#1 Normal comparison

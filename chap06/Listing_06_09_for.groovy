@@ -1,47 +1,28 @@
-def store = ''                                         //#1
-for (String s in 'a'..'c') store += s                  //#1
-assert store == 'abc'                                  //#1
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
 
-store = ''                                             //#2
-for (i in [1, 2, 3]) {                                 //#2
-    store += i                                         //#2
-}                                                      //#2
-assert store == '123'                                  //#2
+def store = ''                         //#1
+for (String i in 'a'..'c') store += i  //#1
+assert store == 'abc'                  //#1
 
-def myString = 'Old school Java'                       //#3
-store = ''                                             //#3
-for (int i=0; i < myString.size(); i++) {              //#3
-    store += myString[i]                               //#3
-}                                                      //#3
-assert store == myString                               //#3
+store = ''              //#2
+for (i in [1, 2, 3]) {  //#2
+    store += i          //#2
+}                       //#2
+assert store == '123'   //#2
 
-myString = 'Java range index'                          //#4
-store = ''                                             //#4
-for (int i : 0 ..< myString.size()) {                  //#4
-    store += myString[i]                               //#4
-}                                                      //#4
-assert store == myString                               //#4
+def myString = 'Equivalent to Java'  //#3
+store = ''                           //#3
+for (i in 0..<myString.size()) {   //#3
+    store += myString[i]             //#3
+}                                    //#3
+assert store == myString             //#3
 
-myString = 'Groovy range index'                        //#5
-store = ''                                             //#5
-for (i in 0 ..< myString.size()) {                     //#5
-    store += myString[i]                               //#5
-}                                                      //#5
-assert store == myString                               //#5
+store = ''                //#4
+for (i in myString) {     //#4
+    store += i            //#4
+}                         //#4
+assert store == myString  //#4
 
-myString = 'Java string Iterable'                      //#6
-store = ''                                             //#6
-for (String s : myString) {                            //#6
-    store += s                                         //#6
-}                                                      //#6
-assert store == myString                               //#6
-
-myString = 'Groovy iterator'                           //#7
-store = ''                                             //#7
-for (s in myString) {                                  //#7
-    store += s                                         //#7
-}                                                      //#7
-assert store == myString                               //#7
 //#1 Explicit typing, over string range, no braces
 //#2 Implicit typing, over list as collection, braces
 //#3 Explicit typing, Java-style traditional for loop, braces
