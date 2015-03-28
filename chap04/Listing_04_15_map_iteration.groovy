@@ -1,4 +1,6 @@
-def myMap = [a:1, b:2, c:3]
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
+def myMap = [a: 1, b: 2, c: 3]
 
 def store = ''
 myMap.each { entry ->                                  //#A
@@ -25,6 +27,7 @@ for (value in myMap.values()) {                        //#D
     store += value                                     //#D
 }                                                      //#D
 assert store == '123'
+
 //#A Iterate over entries
 //#B Iterate over keys/values
 //#C Iterate over just the keys

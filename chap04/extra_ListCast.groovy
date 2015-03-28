@@ -1,3 +1,5 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 Set names = ['Dierk', 'Paul'] as Set
 assert names instanceof Set
 

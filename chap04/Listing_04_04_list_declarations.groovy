@@ -1,7 +1,9 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 List myList = [1, 2, 3]
 
 assert myList.size() == 3
-assert myList[0]     == 1
+assert myList[0] == 1
 assert myList instanceof ArrayList
 
 List emptyList = []
@@ -20,6 +22,7 @@ explicitList = new LinkedList(myList)                  //#1
 assert explicitList.size() == 3
 explicitList[0] = 10
 assert explicitList[0] == 10
+
 //#1 Fill from myList
 
 //////////////////////// extra examples:

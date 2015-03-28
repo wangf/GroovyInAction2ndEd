@@ -1,9 +1,5 @@
-List x = [1, null, null, 2]
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
 
-assert [1, 2] == x.findAll { it != null }
-assert [1, 2] == x.grep { it }
-
-assert [1, 2] == x - [null]
-
-x.removeAll([null])
-assert [1, 2] == x
+def x = [1, null, 1]
+assert [1, 1] == x.findAll { it != null }
+assert [1, 1] == x.grep { it }
