@@ -1,8 +1,10 @@
-(60 * 60 * 24 * 365).toString();         // invalid Java
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
+(60 * 60 * 24 * 365).toString(); // invalid Java
 
 int secondsPerYear = 60 * 60 * 24 * 365;
-secondsPerYear.toString();               // invalid Java
+secondsPerYear.toString(); // invalid Java
 
 new Integer(secondsPerYear).toString();
 
-assert "abc" - "a" == "bc"               // invalid Java
+assert "abc" - "a" == "bc" // invalid Java

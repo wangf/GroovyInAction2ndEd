@@ -1,3 +1,5 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 def me      = 'Tarzan'
 def you     = 'Jane'
 def line    = "me $me - you $you"

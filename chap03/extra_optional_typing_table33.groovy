@@ -1,8 +1,19 @@
-def a = 1;      assert a instanceof Integer   //|#1
-def b = 1.0f;   assert b instanceof Float     //|#1
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
 
-int c = 1;      assert c instanceof Integer   //|#2
-float d = 1;    assert d instanceof Float     //|#2
+def a = 1
+assert a.class.name == "java.lang.Integer"
 
-Integer e = 1;  assert e instanceof Integer   //|#3
-String f = '1'; assert f instanceof String    //|#3
+def b = 1.0f
+assert b.class.name == "java.lang.Float"
+
+int c = 1
+assert c.class.name == "java.lang.Integer"
+
+float d = 1
+assert d.class.name == "java.lang.Float"
+
+Integer e = 1
+assert e.class.name == "java.lang.Integer"
+
+String f = '1'
+assert f.class.name == "java.lang.String"

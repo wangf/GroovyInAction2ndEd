@@ -1,6 +1,8 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 def twister = 'she sells sea shells at the sea shore of seychelles'
 
-// twister must contain a substring of size 3 
+// twister must contain a substring of size 3
 // that starts with s and ends with a
 assert twister =~ /s.a/                                        //#1
 
@@ -22,6 +24,7 @@ assert wordsByX == 'x x x x x x x x x x'
 def words = twister.split(/ /)                                 //#D
 assert words.size() == 10
 assert words[0] == 'she'
+
 //#1 Regex find operator as usable in if
 //#2 Find expression evaluates to a matcher object
 //#A Regex match operator
