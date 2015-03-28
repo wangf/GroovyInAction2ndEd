@@ -1,3 +1,5 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 //java.class.version
 //jdk5=49.0
 //jdk6=50.0

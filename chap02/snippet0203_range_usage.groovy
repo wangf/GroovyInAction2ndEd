@@ -1,3 +1,5 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 def x = 1..10
 assert x.contains(5)
 assert !x.contains(15)

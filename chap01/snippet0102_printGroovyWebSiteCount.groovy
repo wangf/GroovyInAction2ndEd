@@ -1,4 +1,4 @@
-//Groovy in Action, 2nd Ed.
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
 
 import static groovyx.gpars.GParsPool.withPool
 

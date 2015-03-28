@@ -1,40 +1,40 @@
-if (false) assert false                                //#A
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
 
-if (null)                                              //#B
-{                                                      //#C
+if (false) assert false    //'if' as one-liner
+
+if (null)                  //Null is false
+{                          //Blocks may start on new line
     assert false
-}
-else
-{
+} else {
     assert true
 }
+def i = 0                 //Classic 'while'
+while (i < 10) {
+    i++
+}
+assert i == 10
 
-def i = 0                                              //#D
-while (i < 10) {                                       //#D
-    i++                                                //#D
-}                                                      //#D
-assert i == 10                                         //#D
+def clinks = 0            //'for' in 'range'
+for (remainingGuests in 0..9) {
+    clinks += remainingGuests
+}
+assert clinks == (10 * 9) / 2
 
-def clinks = 0                                         //#E
-for (remainingGuests in 0..9) {                        //#E
-    clinks += remainingGuests                          //#E
-}                                                      //#E
-assert clinks == (10*9)/2                              //#E
+def list = [0, 1, 2, 3]   //'for' in 'list'
+for (j in list) {
+    assert j == list[j]
+}
 
-def list = [0, 1, 2, 3]                                //#F
-for (j in list) {                                      //#F
-    assert j == list[j]                                //#F
-}                                                      //#F
+list.each() { item ->     //'each' method with a closure
+    assert item == list[item]
+}
 
-list.each() { item ->                                  //#G
-    assert item == list[item]                          //#G
-}                                                      //#G
+switch (3) {              //Classic 'switch'
+    case 1: assert false; break
+    case 3: assert true; break
+    default: assert false
+}
 
-switch(3)  {                                           //#H
-    case 1 : assert false; break                       //#H
-    case 3 : assert true;  break                       //#H
-    default: assert false                              //#H
-}                                                      //#H
 //#A The if as one-liner
 //#B Null is false
 //#C Blocks may start on new line

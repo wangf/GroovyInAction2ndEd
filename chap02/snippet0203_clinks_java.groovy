@@ -1,3 +1,5 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 // Java snippet
 int totalClinks = 0;
 int partyPeople = 100;

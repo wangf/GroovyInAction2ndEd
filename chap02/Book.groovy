@@ -1,9 +1,13 @@
+// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 class Book {
     private String title
-    Book (String theTitle) {
+
+    Book(String theTitle) {
         title = theTitle
     }
-    String getTitle(){
+
+    String getTitle() {
         return title
     }
-}
+} 
