@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def host = /\/\/([a-zA-Z0-9-]+(\.[a-zA-Z0-9-])*?)(:|\/)/   //#A
 

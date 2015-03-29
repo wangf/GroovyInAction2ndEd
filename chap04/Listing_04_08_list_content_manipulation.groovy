@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 assert [1, [2, 3]].flatten() == [1, 2, 3]
 assert [1, 2, 3].intersect([4, 3, 1]) == [3, 1]

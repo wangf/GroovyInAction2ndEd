@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 class Weekday implements Comparable {
     static final DAYS = [

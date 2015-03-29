@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def roman = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII']  //#A
 assert roman[4] == 'IV'                                     //#B

@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 List myList = [1, 2, 3]
 

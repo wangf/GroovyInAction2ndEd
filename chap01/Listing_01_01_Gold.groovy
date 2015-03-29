@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 List fibo = [1, 1]                          //#A
 List gold = [1, 2]                          //#B

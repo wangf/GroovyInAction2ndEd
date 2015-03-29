@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def result = ''                                        //#A
 (5..9).each { element ->                               //#A

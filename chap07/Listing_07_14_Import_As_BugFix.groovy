@@ -6,11 +6,12 @@ class MathLib extends OrigMathLib {
     }
 }
 
-// nothing changes below here                          //#A
+// nothing changes below here                         //#A
 def mathlib = new MathLib()
 
 assert 10 == mathlib.twice(5)                          //#B
 assert 2 == mathlib.half(5)                            //#C
+
 //#A Usage code for library remains unchanged
 //#B Invoke fixed method
 //#C Invoke original method

@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def matcher = 'a:1 b:2 c:3' =~ $/(\S+):(\S+)/$
 //def matcher = 'a:1 b:2 c:3' =~ /(\S+):(\S+)/

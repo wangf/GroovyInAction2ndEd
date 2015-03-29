@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def myFairStringy = 'The rain in Spain stays mainly in the plain!'
 

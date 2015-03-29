@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def urls = [
         new URL('http', 'myshop.com', 80, 'index.html'),

@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def twister = 'she sells sea shells at the sea shore of seychelles'
 // some more complicated regex:

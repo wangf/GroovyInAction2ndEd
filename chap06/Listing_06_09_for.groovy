@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def store = ''                         //#1
 for (String i in 'a'..'c') store += i  //#1

@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 @Grab('commons-lang:commons-lang:2.4')
 import org.apache.commons.lang.ClassUtils

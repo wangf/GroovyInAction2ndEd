@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def benchmark(int repeat, Closure worker) {            //#1
     def start = System.nanoTime()                      //#2

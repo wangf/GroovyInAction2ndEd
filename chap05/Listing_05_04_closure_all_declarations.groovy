@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 Map map = ['a': 1, 'b': 2]
 map.each { key, value -> map[key] = value * 2 }         //#1

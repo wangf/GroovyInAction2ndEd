@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 enum Month {
     Jan, Feb, Mar, Apr, May, Jun,

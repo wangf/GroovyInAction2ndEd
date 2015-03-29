@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def a = 1
 assert a.class.name == "java.lang.Integer"

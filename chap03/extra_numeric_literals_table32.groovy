@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 //java.lang.Integer
 [15, 0x1234ffff, 0b00110011, 100_000_000].each {

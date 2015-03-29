@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 assert 1 == (-1).abs()
 assert 2 == 2.5.toInteger()      // conversion

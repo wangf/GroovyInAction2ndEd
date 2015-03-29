@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 assert 1f * 2f instanceof Double
 assert (Byte) 1 + (Byte) 2 instanceof Integer

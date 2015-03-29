@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def nick = 'ReGina'
 def book = 'Groovy in Action, 2nd ed.'

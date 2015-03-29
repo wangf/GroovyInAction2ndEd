@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 def configurator = { format, filter, line ->                //#1
   filter(line) ? format(line) : null                       //#1

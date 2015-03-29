@@ -1,7 +1,7 @@
 class ClassWithProperties {
-    def       someProperty
-    public    someField
-    private   somePrivateField
+    def someProperty
+    public someField
+    private somePrivateField
 }
 
 def obj = new ClassWithProperties()
@@ -12,7 +12,7 @@ obj.properties.each { property ->
     store += property.value
 }
 assert store.contains('someProperty')
-assert store.contains('someField')        == false 
+assert store.contains('someField') == false
 assert store.contains('somePrivateField') == false
 assert store.contains('class')
 

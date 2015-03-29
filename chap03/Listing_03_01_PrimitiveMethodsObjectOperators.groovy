@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 (60 * 60 * 24 * 365).toString(); // invalid Java
 

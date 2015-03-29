@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 println "This is a '\b' Backspace"
 println "This is a '\t' Tab"

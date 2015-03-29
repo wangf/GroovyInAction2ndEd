@@ -1,4 +1,4 @@
-// [Groovy in Action, Second Edition](http://www.manning.com/koenig2/)
+
 
 assert (0..10).contains(0)                             //#A
 assert (0..10).contains(5)                             //#A
