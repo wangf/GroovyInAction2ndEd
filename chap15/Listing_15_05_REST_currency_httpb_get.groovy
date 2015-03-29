@@ -9,6 +9,3 @@ converter.get(path: 'ConversionRate', query: params) { resp, data ->
   assert data.name() == 'double'
   println data.text()
 }
-// => http://www.webservicex.net/CurrencyConvertor.asmx/ConversionRate?FromCurrency=USD&ToCurrency=EUR
-// => <double xmlns="http://www.webserviceX.NET/">0.882</double>
-// => 0.882

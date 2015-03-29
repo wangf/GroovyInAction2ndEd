@@ -14,5 +14,3 @@ def response = client.send {
 }
 assert response.httpResponse.statusCode == 200
 println response.ConversionRateResponse.ConversionRateResult
-
-// => 0.882

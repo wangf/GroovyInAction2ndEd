@@ -22,10 +22,3 @@ jira.login('username', '****') { loginToken ->
     println "Led by $groovy.lead and hosted at $groovy.projectUrl"
   }
 }
-
-/*
-528 projects found in the codehaus jira
-Found the groovy project with key GROOVY
-Description: Groovy programming language: a modern dynamic language for the JVM
-Led by guillaume and hosted at http://groovy.codehaus.org/
-*/

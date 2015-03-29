@@ -24,21 +24,3 @@ new RESTClient(base).with {
 }
 //#1 register a SOAP response parser
 //#2 Content-Type expected by SOAP server
-
-// xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"
-// => http://www.webservicex.net/CurrencyConvertor.asmx/ConversionRate
-// => <double xmlns="http://www.webserviceX.NET/">0.882</double>
-// => 0.882
-/*
-<soap:Envelope
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Body>
-    <ConversionRate xmlns="http://www.webserviceX.NET/">
-      <FromCurrency>${from}</FromCurrency>
-      <ToCurrency>${to}</ToCurrency>
-    </ConversionRate>
-  </soap:Body>
-</soap:Envelope>
-*/
