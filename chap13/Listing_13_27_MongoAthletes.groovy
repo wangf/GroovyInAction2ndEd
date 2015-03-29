@@ -1,12 +1,14 @@
 @Grab('com.gmongo:gmongo:1.3')
 import com.gmongo.GMongo
+@Grab('com.gmongo:gmongo:1.3')
+import com.gmongo.GMongo
 import com.mongodb.util.JSON
 import groovy.transform.Field
 
 @Field db = new GMongo().getDB('athletes')
 db.athletes.drop()
 db.athletes << [first: 'Paul', last: 'Tergat', dob: '1969-06-17', records: [
-        [time: 2 * 60 * 60 + 4 * 60 + 55,
+        [time : 2 * 60 * 60 + 4 * 60 + 55,
          venue: 'Berlin', when: '2003-09-28']
 ]]
 
@@ -17,8 +19,8 @@ def insertAthlete(first, last, dob) {
 def insertRecord(h, m, s, venue, date, lastname) {
     db.athletes.update(
             [last: lastname],
-            [$addToSet: [records: [time: h * 60 * 60 + m * 60 + s,
-                                venue: venue, when: date]]]
+            [$addToSet: [records: [time : h * 60 * 60 + m * 60 + s,
+                                   venue: venue, when: date]]]
     )
 }
 
@@ -45,10 +47,6 @@ assert db.athletes.count == 4
 db.athletes.find().each {
     println "$it._id $it.last ${it.records.size()}"
 }
-//516b15fc2b10a15fa09331f2 Tergat 1
-//516b15fc2b10a15fa09331f3 Khannouchi 2
-//516b15fc2b10a15fa09331f4 da Costa 1
-//516b15fc2b10a15fa09331f5 Radcliffe 1
 
 def londonAthletes = db.athletes.find('records.venue': 'London')*.first
 assert londonAthletes == ['Khalid', 'Paula']

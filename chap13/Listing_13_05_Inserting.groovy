@@ -20,10 +20,10 @@ def insertSql = '''
 '''
 def params = ['Ronaldo', 'da Costa', '1970-06-07']
 def keyColumnNames = ['ATHLETEID']
-keys = sql.executeInsert insertSql, params, keyColumnNames            //#C
-assert keys[0] == [ATHLETEID: 2]                                      //#2
+keys = sql.executeInsert insertSql, params, keyColumnNames            //#C assert keys[0] == [ATHLETEID: 2]                                      //#2
 
 sql.close()
+
 //#A Insert using plain statement
 //#B GString variant
 //#C List of params variant

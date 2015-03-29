@@ -14,7 +14,10 @@ sql.execute insertPrefix + '(:first,:last,:dob)', first: 'Ingrid',
 def loroupe = [first: 'Tegla', last: 'Loroupe', dob: '1973-05-09']
 sql.execute insertPrefix + '(:first,:last,:dob)', loroupe
 
-@Canonical class Athlete { String first, last, dob }
+@Canonical
+class Athlete {
+    String first, last, dob
+}
 
 def ndereba = new Athlete('Catherine', 'Ndereba', '1972-07-21')
 sql.execute insertPrefix + '(?.first,?.last,?.dob)', ndereba

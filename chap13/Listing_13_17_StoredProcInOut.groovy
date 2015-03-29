@@ -13,6 +13,6 @@ sql.execute '''
 '''
 
 sql.call("{call CONCAT_NAME(?, ?, ?)}",
-    [Sql.VARCHAR, 'Paul', 'Tergat']) {
-  fullname -> assert fullname == 'Paul Tergat'
+        [Sql.VARCHAR, 'Paul', 'Tergat']) {
+    fullname -> assert fullname == 'Paul Tergat'
 }

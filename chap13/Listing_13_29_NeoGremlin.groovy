@@ -9,16 +9,14 @@
 @Grab('org.apache.lucene:lucene-core:3.6.2')
 @Grab('com.tinkerpop.gremlin:gremlin-groovy:2.6.0;transitive=false')
 @Grab('com.tinkerpop.gremlin:gremlin-java:2.6.0;transitive=false')
-@Grab('com.tinkerpop.blueprints:\
-blueprints-neo4j2-graph:2.6.0;transitive=false')
+@Grab('com.tinkerpop.blueprints:blueprints-neo4j2-graph:2.6.0;transitive=false')
 @Grab('commons-configuration:commons-configuration:1.6')
 @Grab('com.tinkerpop.blueprints:blueprints-core:2.6.0;transitive=false')
 @Grab('com.tinkerpop:pipes:2.6.0;transitive=false')
 @Grab('org.parboiled:parboiled-scala_2.10:1.1.6;transitive=false')
 @Grab('org.parboiled:parboiled-core:1.1.6')
 @Grab('org.scala-lang:scala-library:2.10.4')
-@Grab('com.googlecode.concurrentlinkedhashmap:\
-concurrentlinkedhashmap-lru:1.4.1')
+@Grab('com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:1.4.1')
 @GrabExclude('junit:junit')
 @GrabExclude('org.hamcrest:hamcrest-all')
 @GrabExclude('org.mockito:mockito-core')
@@ -41,23 +39,23 @@ try {
     // create athlete1 .. athlete4
     athlete1 = insertAthlete(db, 'Paul', 'Tergat', '1969-06-17')
     record1 = insertRecord(
-        db, 2, 4, 55, 'Berlin', '2003-09-28', athlete1)
+            db, 2, 4, 55, 'Berlin', '2003-09-28', athlete1)
 
     athlete2 = insertAthlete(db, 'Khalid', 'Khannouchi', '1971-12-22')
     record2a = insertRecord(
-        db, 2, 5, 38, 'London', '2002-04-14', athlete2)
+            db, 2, 5, 38, 'London', '2002-04-14', athlete2)
     record2b = insertRecord(
-        db, 2, 5, 42, 'Chicago', '1999-10-24', athlete2)
+            db, 2, 5, 42, 'Chicago', '1999-10-24', athlete2)
 
     athlete3 = insertAthlete(db, 'Ronaldo', 'da Costa', '1970-06-07')
     record3 = insertRecord(
-        db, 2, 6, 5, 'Berlin', '1998-09-20', athlete3)
+            db, 2, 6, 5, 'Berlin', '1998-09-20', athlete3)
 
     athlete4 = insertAthlete(db, 'Paula', 'Radcliffe', '1973-12-17')
     record4a = insertRecord(
-        db, 2, 17, 18, 'Chicago', '2002-10-13', athlete4)
+            db, 2, 17, 18, 'Chicago', '2002-10-13', athlete4)
     record4b = insertRecord(
-        db, 2, 15, 25, 'London', '2003-04-13', athlete4)
+            db, 2, 15, 25, 'London', '2003-04-13', athlete4)
 
     record2b.broke(record3)
     record2a.broke(record2b)
@@ -86,5 +84,4 @@ try {
     tx.success()
 } finally {
     tx?.close()
-
 }

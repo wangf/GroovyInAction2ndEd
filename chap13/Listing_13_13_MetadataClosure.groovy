@@ -4,25 +4,24 @@ def sql = DbUtil.create()
 DbUtil.populate(sql)
 
 def dump2(sql, tablename) {
-  def printColNames = { meta ->
-    def width = meta.columnCount * 12
-    println " CONTENT OF TABLE ${tablename} ".center(width, '-')
-    (1..meta.columnCount).each {
-      print meta.getColumnLabel(it).padRight(12)
-    }
-    println()
-    println '-' * width
-  }
-  def printRow = { row ->
-    row.toRowResult().values().each {
-      print it.toString().padRight(12)
-    }
-    println()
-  }
-  sql.eachRow('SELECT * FROM ' + tablename, printColNames, printRow)
+        def printColNames = { meta ->
+                def width = meta.columnCount * 12
+                println " CONTENT OF TABLE ${tablename} ".center(width, '-')
+                (1..meta.columnCount).each {
+                        print meta.getColumnLabel(it).padRight(12)
+                }
+                println()
+                println '-' * width
+        }
+        def printRow = { row ->
+                row.toRowResult().values().each {
+                        print it.toString().padRight(12)
+                }
+                println()
+        }
+        sql.eachRow('SELECT * FROM ' + tablename, printColNames, printRow)
 }
 
-def oldOut = System.out
 def baos = new ByteArrayOutputStream()
 System.setOut(new PrintStream(baos))
 
@@ -38,10 +37,9 @@ ATHLETEID   FIRSTNAME   LASTNAME    DATEOFBIRTH
 
 baos.reset()
 dump2(sql, 'Record')
-System.setOut(oldOut)
 assert baos.toString().readLines()*.trim().join('\n') == '''\
 ----------------- CONTENT OF TABLE Record ------------------
-RECORDID    TIME        VENUE       WHENRUN     FKATHLETE
+RUNID       TIME        VENUE       WHENRUN     FKATHLETE
 ------------------------------------------------------------
 0           7495        Berlin      2003-09-28  0
 1           7538        London      2002-04-14  1

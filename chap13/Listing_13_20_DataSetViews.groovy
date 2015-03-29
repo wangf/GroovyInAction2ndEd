@@ -11,7 +11,7 @@ sql.execute '''
 '''
 
 def records = sql.dataSet('AthleteRecord').findAll {
-  it.firstname == 'Khalid'
+    it.firstname == 'Khalid'
 }
 def result = records.rows().collect { "$it.lastname $it.venue" }
 assert ['Khannouchi London', 'Khannouchi Chicago'] == result

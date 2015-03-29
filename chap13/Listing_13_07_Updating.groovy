@@ -19,7 +19,7 @@ def row = sql.firstRow '''
   SELECT * FROM Athlete where lastname = 'da Costa'
 '''
 assert "${row.firstname} ${row.lastname} ${row.dateofbirth}" ==
-    'Ronaldo da Costa 1970-06-07'
+        'Ronaldo da Costa 1970-06-07'
 
 sql.close()
 //#A Check one row was updated

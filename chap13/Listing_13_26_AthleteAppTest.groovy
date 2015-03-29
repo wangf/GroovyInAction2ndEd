@@ -2,19 +2,9 @@ import layering.*
 
 def app = new AthleteApplication()
 app.init()
-
-// next line only for the benefit of alltests.groovy
-def oldOut = System.out
-
 ByteArrayOutputStream baos = captureSystemOut()
 overrideSystemIn()
-try {
-    app.mainLoop()
-} finally {
-    // next line only for the benefit of alltests.groovy
-    System.setOut(oldOut)
-}
-
+app.mainLoop()
 verifyOutput(baos)
 
 def captureSystemOut() {                           //#A
