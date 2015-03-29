@@ -2,14 +2,14 @@ TimeZone.default = TimeZone.getTimeZone("CET")                 //#A
 
 def builder = new NodeBuilder()
 def invoices = builder.invoices {
-  for (day in 1..3) {                                          //#B
-    def invDate = Date.parse('yyyy-MM-dd', "2015-01-0$day")
-    invoice(date: invDate) {                                   //#1
-      item(count: day) {                                       //#1
-        product(name: 'ULC', dollar: 1499)                     //#1
-      }                                                        //#1
-    }                                                          //#1
-  }
+    for (day in 1..3) {                                          //#B
+        def invDate = Date.parse('yyyy-MM-dd', "2015-01-0$day")
+        invoice(date: invDate) {                                   //#1
+            item(count: day) {                                       //#1
+                product(name: 'ULC', dollar: 1499)                     //#1
+            }                                                        //#1
+        }                                                          //#1
+    }
 }
 
 def writer = new StringWriter()
@@ -34,7 +34,7 @@ invoices() {
   }
 }
 """
-//#A Set timezone for consistent Date toString() values in test
-//#B Loop over 3 days
+//#A Set TimeZone for consistent Date toString() values in test
+//#B Loop over three days
 //#1 Code for building a single invoice
 //#C Print to a StringWriter for testing

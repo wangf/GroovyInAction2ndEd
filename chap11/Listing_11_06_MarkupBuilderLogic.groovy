@@ -5,14 +5,14 @@ TimeZone.default = TimeZone.getTimeZone("CET")
 def writer = new StringWriter()
 def builder = new MarkupBuilder(writer)                    //#1
 builder.invoices {
-  for (day in 1..3) {
-    def invDate = Date.parse('yyyy-MM-dd', "2015-01-0$day")
-    invoice(date: invDate) {
-      item(count: day) {
-        product(name: 'ULC', dollar: 1499)
-      }
+    for (day in 1..3) {
+        def invDate = Date.parse('yyyy-MM-dd', "2015-01-0$day")
+        invoice(date: invDate) {
+            item(count: day) {
+                product(name: 'ULC', dollar: 1499)
+            }
+        }
     }
-  }
 }
 
 assert "\n" + writer.toString() == """
@@ -33,4 +33,4 @@ assert "\n" + writer.toString() == """
     </item>
   </invoice>
 </invoices>"""
-//#1 NEW: MarkupBuilder replaces NodeBuilder
+//#1 New: MarkupBuilder replaces NodeBuilder
