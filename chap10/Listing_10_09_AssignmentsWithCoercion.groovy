@@ -20,6 +20,7 @@ void testAssignmentsWithCoercion() {
 }
 
 testAssignmentsWithCoercion()
+
 //#A Strings coerced to enum values
 //#B Anything coerced to String
 //#C Anything coerced to boolean/Boolean

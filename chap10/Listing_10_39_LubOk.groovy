@@ -1,7 +1,12 @@
 import groovy.transform.TypeChecked
 
-class A { void foo() {} }
-class B extends A { void bar() {} }
+class A {
+    void foo() {}
+}
+
+class B extends A {
+    void bar() {}
+}
 
 @TypeChecked
 void main() {

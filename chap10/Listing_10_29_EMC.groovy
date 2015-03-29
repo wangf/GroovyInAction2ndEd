@@ -26,7 +26,8 @@ assert "Austin" == spy.name
 spy.changeNameToMaxwell()
 assert "Maxwell" == spy.name
 spy.changeNameToAustin()
+
+//#A Create an ExpandoMetaClass for Spy class
 //#1 If method not found, define new one
 //#2 Cache method
-//#A Create an ExpandoMetaClass for Spy class
 //#B Call new method

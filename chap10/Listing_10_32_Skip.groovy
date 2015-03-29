@@ -1,16 +1,18 @@
-import groovy.xml.MarkupBuilder
 import groovy.transform.TypeChecked
 import groovy.transform.TypeCheckingMode
+import groovy.xml.MarkupBuilder
 
-@TypeChecked                                                     //#A
-class HTMLExample2 {
-    @TypeChecked(TypeCheckingMode.SKIP)                          //#B
+@TypeChecked
+//#A
+class HTMLExample {
+    @TypeChecked(TypeCheckingMode.SKIP)
+    //#B
     private static String buildPage(String pageTitle) {
         def writer = new StringWriter()
         def xml = new MarkupBuilder(writer)
 
         xml.html {
-           head { title(pageTitle) }
+            head { title(pageTitle) }
         }
         writer
     }
@@ -20,6 +22,7 @@ class HTMLExample2 {
     }
 }
 
-HTMLExample2.page404()
-//#A Type check class
+HTMLExample.page404()
+
+//#A Type-checked class
 //#B But exclude this method

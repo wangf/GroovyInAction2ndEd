@@ -7,4 +7,5 @@ void alsoOneDimensional() {
 shouldFail(ClassCastException) {
     alsoOneDimensional()
 }
+
 //#A Two parameters required! Runtime error here!

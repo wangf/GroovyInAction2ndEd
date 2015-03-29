@@ -13,7 +13,7 @@ def book(meeting) {
             [and: { ed ->
                 [to: { to ->
                     def b = new Booking(meetingRoom: name,
-                        className: to, start: sd, end: ed)
+                            className: to, start: sd, end: ed)
                     println b
                     b
                 }]
@@ -23,6 +23,7 @@ def book(meeting) {
 }
 
 def meeting
+
 @Category(Integer)
 class TimeCategory {
     static Date getAm(Integer self) {
@@ -33,7 +34,7 @@ class TimeCategory {
         d.time
     }
 }
+
 use(TimeCategory) {
     book meeting room 'Honolulu' between 9.am and 12.am to 'B2'
 }
-

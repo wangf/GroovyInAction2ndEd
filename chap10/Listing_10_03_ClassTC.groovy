@@ -1,13 +1,12 @@
 import groovy.transform.TypeChecked
 
-@TypeChecked                                                  //#A
+@TypeChecked
 class Sleuth {
-  String firstName
-  String lastName
+    String firstName
+    String lastName
 
-  String getFullName() { "$firstName $lastName" }
+    String getFullName() { "$firstName $lastName" }
 }
 
-assert new Sleuth(firstName: 'Nancy',
-                   lastName: 'Drew').fullName == 'Nancy Drew'
-//#A Class annotation
+def nancy = new Sleuth(firstName: 'Nancy', lastName: 'Drew')
+assert nancy.fullName == 'Nancy Drew'

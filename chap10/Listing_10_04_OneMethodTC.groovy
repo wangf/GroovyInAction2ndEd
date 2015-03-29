@@ -1,14 +1,15 @@
 import groovy.transform.TypeChecked
 
 class Actor {
-  String firstName, lastName
+    String firstName, lastName
 
-  @TypeChecked
-  String getFullName() { "$firstName $lastName" }         //#1
+    @TypeChecked
+    //#1
+    String getFullName() { "$firstName $lastName" }
 
-  void makePeace() {
-    new AntBuilder().echo('Peace was never an option')    //#2
-  }
+    void makePeace() {
+        new AntBuilder().echo('Peace was never an option')    //#2
+    }
 }
 
 def magneto = new Actor(firstName: 'Ian', lastName: 'McKellen')

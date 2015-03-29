@@ -1,5 +1,5 @@
-import groovy.xml.MarkupBuilder
 import groovy.transform.TypeChecked
+import groovy.xml.MarkupBuilder
 
 class HTMLExample {
     private static String buildPage(String pageTitle) {
@@ -7,16 +7,18 @@ class HTMLExample {
         def xml = new MarkupBuilder(writer)
 
         xml.html {
-           head { title(pageTitle) }
+            head { title(pageTitle) }
         }
         writer
     }
 
-    @TypeChecked                                     //#A
+    @TypeChecked
+    //#A
     static String page404() {
         buildPage '404 - Not Found'
     }
 }
 
 HTMLExample.page404()
+
 //#A Type check only this method
