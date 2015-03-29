@@ -1,18 +1,15 @@
-
-class EvenSieve {
-    def getNo2() {
-        removeAll { it % 2 == 0 }
-        return this
+@Mixin(MessageFeature)
+class FirstTest extends GroovyTestCase {
+    void testWithMixinUsage() {
+        message = "Called from Test"
+        assertMessage "Called from Test"
     }
 }
 
-class MinusSieve {
-    def minus(int num) {
-        removeAll { it % num == 0 }
-        return this
+class MessageFeature {
+    def message
+
+    void assertMessage(String msg) {
+        assertEquals msg, message
     }
 }
-
-List.mixin EvenSieve, MinusSieve
-
-assert (0..10).toList().no2 - 3 - 5 == [1, 7]

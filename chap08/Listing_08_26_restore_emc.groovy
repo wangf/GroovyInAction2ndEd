@@ -11,15 +11,13 @@ assert "abc".size() == 6
 assert "abc".oldSize() == 3
 
 if (oldMetaClass.is(String.metaClass)) {
-    String.metaClass {                              //#3
+    String.metaClass {                             // #3
         size = { -> alias.invoke delegate }
         oldSize = { -> throw new UnsupportedOperationException() }
     }
 } else {
-    String.metaClass = oldMetaClass                 //#4
+    String.metaClass = oldMetaClass                // #4
 }
 
 assert "abc".size() == 3
-
-
 

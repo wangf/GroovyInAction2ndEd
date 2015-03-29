@@ -1,4 +1,3 @@
-
 class Marshal {
     static String marshal(Integer self) {
         self.toString()
@@ -16,3 +15,4 @@ use Marshal, {
         assert it.marshal().unMarshal() == it
     }
 }
+

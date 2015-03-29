@@ -16,7 +16,7 @@ class Printer implements ChannelComponent {
 class WiringCategory {
     static connections = []
 
-    static setInChannel(ChannelComponent self, value) { //#1
+    static setInChannel(ChannelComponent self, value) {             //#1
         connections << [target: self, source: value]
     }
 
@@ -30,11 +30,12 @@ Adaptor adaptor = new Adaptor()
 Printer printer = new Printer()
 
 use WiringCategory, {
-    adaptor.inChannel = producer.outChannel //|#2
-    printer.inChannel = adaptor.outChannel  //|#2
+    adaptor.inChannel = producer.outChannel                    //#2
+    printer.inChannel = adaptor.outChannel                     //#2
 }
 
 assert WiringCategory.connections == [
         [source: producer, target: adaptor],
         [source: adaptor, target: printer]
 ]
+
