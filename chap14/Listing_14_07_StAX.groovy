@@ -1,5 +1,5 @@
-// requires stax.jar and stax-api.jar for Java 1.5
-import javax.xml.stream.*
+import javax.xml.stream.XMLInputFactory
+import javax.xml.stream.XMLStreamReader
 
 def input = 'file:data/plan.xml'.toURL()
 def underway = []
@@ -7,9 +7,9 @@ def upcoming = []
 
 def eachStartElement(inputStream, Closure yield) {
     def token = XMLInputFactory.newInstance()
-        .createXMLStreamReader(inputStream)               //#1
+            .createXMLStreamReader(inputStream)                       //#A
     try {
-        while (token.hasNext()) {                         //#2
+        while (token.hasNext()) {                                 //#B
             if (token.startElement) yield token
             token.next()
         }
@@ -19,29 +19,32 @@ def eachStartElement(inputStream, Closure yield) {
     }
 }
 
-class XMLStreamCategory {                                 //|#3
-    static Object get(XMLStreamReader self, String key) { //|#3
-        return self.getAttributeValue(null, key)          //|#3
-    }                                                     //|#3
-}                                                         //|#3
+class XMLStreamCategory {                                       //#C
+    static Object get(XMLStreamReader self, String key) {       //#C
+        return self.getAttributeValue(null, key)                //#C
+    }                                                           //#C
+}                                                               //#C
 
-use (XMLStreamCategory) {
+use(XMLStreamCategory) {
     eachStartElement(input.openStream()) { element ->
         if (element.name.toString() != 'task') return
         switch (element.done) {
-            case '0' :
+            case '0':
                 upcoming << element.title
                 break
-            case { it != element.total } :
+            case { it != element.total }:
                 underway << element.title
         }
     }
 }
 
 assert underway == [
-    'use in current project'
+        'use in current project'
 ]
 assert upcoming == [
-    're-read DB chapter',
-    'use DB/XML combination'
+        're-read DB chapter',
+        'use DB/XML combination'
 ]
+//#A Declare parser
+//#B Loop through events of interest
+//#C Category for simple attribute access

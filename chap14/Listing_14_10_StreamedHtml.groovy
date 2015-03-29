@@ -1,42 +1,52 @@
-//@Grab('org.codehaus.groovy:groovy-xml:2.2.0')
 import groovy.xml.StreamingMarkupBuilder
 
 def taskStatus(task) {                                       //#1
-  switch (task.@done.toInteger()) {
-    case 0: return 'scheduled'
-    case 1..<task.@total.toInteger(): return 'in progress'
-    default: return 'finished'
-  }
+    switch (task.@done.toInteger()) {
+        case 0: return 'scheduled'
+        case 1..<task.@total.toInteger(): return 'in progress'
+        default: return 'finished'
+    }
 }
 
 def weekStatus(week) {                                       //#2
-  if (week.task.every { taskStatus(it) == 'finished' })
-    return 'finished'
-  if (week.task.any { taskStatus(it) == 'in progress' })
-    return 'in progress'
-  return 'scheduled'
+    if (week.task.every { taskStatus(it) == 'finished' })
+        return 'finished'
+    if (week.task.any { taskStatus(it) == 'in progress' })
+        return 'in progress'
+    return 'scheduled'
 }
 
 def plan = new XmlSlurper().parse(new File('data/plan.xml')) //#3
 
 Closure markup = {                                           //#4
-  html {
-    head {
-      title('Current Groovy progress')
-      link(rel: 'stylesheet',
-          type: 'text/css',
-          href: 'style.css')
+    html {
+        head {
+            title('Current Groovy progress')
+            link(rel: 'stylesheet',
+                    type: 'text/css',
+                    href: 'style.css')
+        }
+        body {
+            plan.week.eachWithIndex { week, i ->
+                h1("Week No. $i: ${owner.weekStatus(week)}")
+                dl {
+                    week.task.each { task ->
+                        def status = owner.taskStatus(task)
+                        dt(class: status, task.@title)
+                        dd("(${task.@done}/${task.@total}): $status")
+                    }
+                }
+            }
+        }
     }
-    body {
-      plan.week.eachWithIndex { week, i ->
-        h1("Week No. $i: ${owner.weekStatus(week)}")
-        dl {
-          week.task.each { task ->
-            def status = owner.taskStatus(task)
-            dt(class: status, task.@title)
-            dd("(${task.@done}/${task.@total}): $status")
-} } } } } }
+}
 
 def heater = new StreamingMarkupBuilder().bind(markup)       //#5
 def outfile = new File('data/StreamedGroovyPlans.html')
-outfile.withWriter{ it << heater }                           //#6
+outfile.withWriter { it << heater }                           //#6
+//#1 Calculate task status
+//#2 Calculate week status
+//#3 “Slurp” in the XML
+//#4 Express the processing as a closure
+//#5 Bind parsed XML to processing logic
+//#6 Write out result to a file

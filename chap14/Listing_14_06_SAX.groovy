@@ -1,18 +1,21 @@
-import javax.xml.parsers.SAXParserFactory
-import org.xml.sax.*
+import org.xml.sax.Attributes
+import org.xml.sax.InputSource
 import org.xml.sax.helpers.DefaultHandler
+
+import javax.xml.parsers.SAXParserFactory
 
 class PlanHandler extends DefaultHandler {                  //#1
     def underway = []
     def upcoming = []
+
     void startElement(String namespace, String localName,
-            String qName, Attributes atts) {                //#2
+                      String qName, Attributes atts) {                //#2
         if (qName != 'task') return                         //#3
         def title = atts.getValue('title')
         def total = atts.getValue('total')
         switch (atts.getValue('done')) {
-            case '0'             : upcoming << title ; break
-            case { it != total } : underway << title ; break
+            case '0': upcoming << title; break
+            case { it != total }: underway << title; break
         }
     }
 }
@@ -26,9 +29,13 @@ new File('data/plan.xml').withInputStream { is ->
 }
 
 assert handler.underway == [
-    'use in current project'
+        'use in current project'
 ]
 assert handler.upcoming == [
-    're-read DB chapter',
-    'use DB/XML combination'
+        're-read DB chapter',
+        'use DB/XML combination'
 ]
+//#1 Declare our handler
+//#2 Interested in element start events
+//#3 Interested only in task elements
+//#4 Declare our SAX reader

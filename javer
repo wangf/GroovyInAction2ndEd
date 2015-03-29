@@ -1,0 +1,2 @@
+javac -cp /Users/m86014/code/groovy-all-2.4.0.jar $1
+java $1

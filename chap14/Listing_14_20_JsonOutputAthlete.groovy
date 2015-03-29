@@ -1,9 +1,12 @@
-import static groovy.json.JsonOutput.*
+import static groovy.json.JsonOutput.prettyPrint
+import static groovy.json.JsonOutput.toJson
 
 def json = toJson([date: '2015-01-01', time: '6 am'])
 assert json == '{"date":"2015-01-01","time":"6 am"}'
 
-class Athlete { String first, last }
+class Athlete {
+    String first, last
+}
 
 def mj = new Athlete(first: 'Michael', last: 'Jordan')
 assert toJson(mj) == '{"first":"Michael","last":"Jordan"}'

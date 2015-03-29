@@ -1,0 +1,2 @@
+@GrabResolver(name = 'custom', root = 'http://nexus.sys.cigna.com/nexus/content/groups/public/', m2Compatible = true)
+
