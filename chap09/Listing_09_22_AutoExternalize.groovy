@@ -1,4 +1,5 @@
-import groovy.transform.*
+import groovy.transform.AutoExternalize
+import groovy.transform.ToString
 
 @AutoExternalize
 @ToString
@@ -12,7 +13,7 @@ def c = new Composer(name: 'Wolfgang Amadeus Mozart',
         born: 1756, married: true)
 
 def baos = new ByteArrayOutputStream()
-baos.withObjectOutputStream{ os -> os.writeObject(c) }
+baos.withObjectOutputStream { os -> os.writeObject(c) }
 def bais = new ByteArrayInputStream(baos.toByteArray())
 def loader = getClass().classLoader
 def result

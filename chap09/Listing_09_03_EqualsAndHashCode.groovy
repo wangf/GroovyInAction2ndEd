@@ -4,6 +4,7 @@ import groovy.transform.EqualsAndHashCode
 class Actor {
     String firstName, lastName
 }
-def magneto = new Actor(firstName:'Ian', lastName: 'McKellen')
-def gandalf = new Actor(firstName:'Ian', lastName: 'McKellen')
+
+def magneto = new Actor(firstName: 'Ian', lastName: 'McKellen')
+def gandalf = new Actor(firstName: 'Ian', lastName: 'McKellen')
 assert magneto == gandalf

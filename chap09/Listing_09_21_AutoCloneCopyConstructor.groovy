@@ -1,16 +1,18 @@
-import groovy.transform.*
-import static groovy.transform.AutoCloneStyle.*
+import groovy.transform.AutoClone
+import groovy.transform.TupleConstructor
+
+import static groovy.transform.AutoCloneStyle.COPY_CONSTRUCTOR
 
 @TupleConstructor
-@AutoClone(style=COPY_CONSTRUCTOR)
+@AutoClone(style = COPY_CONSTRUCTOR)
 class Person {
     final String name
     final Date born
 }
 
-@TupleConstructor(includeSuperProperties=true,
-        callSuper=true)
-@AutoClone(style=COPY_CONSTRUCTOR)
+@TupleConstructor(includeSuperProperties = true,
+        callSuper = true)
+@AutoClone(style = COPY_CONSTRUCTOR)
 class Chef2 extends Person {
     final List<String> recipes
 }

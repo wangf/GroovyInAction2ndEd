@@ -1,6 +1,7 @@
 import groovy.transform.Sortable
 
-@Sortable(includes = 'last,initial')                   //#1
+@Sortable(includes = 'last,initial')
+//#1
 class Politician {
     String first
     Character initial
@@ -10,8 +11,8 @@ class Politician {
 }
 
 def politicians = [
-    new Politician(first: 'Margaret', initial: 'H', last: 'Thatcher'),
-    new Politician(first: 'George', initial: 'W', last: 'Bush')
+        new Politician(first: 'Margaret', initial: 'H', last: 'Thatcher'),
+        new Politician(first: 'George', initial: 'W', last: 'Bush')
 ]
 
 def sorted = politicians.toSorted()                    //#2

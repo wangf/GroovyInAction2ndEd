@@ -6,10 +6,11 @@ class ListUtil {
     }
 
     @TailRecursive
-    private static doReverse(List todo, List done) {
+    private static doReverse(List todo, List done) {        //#A
         if (todo.isEmpty()) done
         else doReverse(todo.tail(), [todo.head()] + done)
     }
 }
 
 assert ListUtil.reverse(['a', 'b', 'c']) == ['c', 'b', 'a']
+//#A Rewritten function with tail recursion

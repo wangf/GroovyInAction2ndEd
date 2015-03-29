@@ -7,10 +7,11 @@ class Database {
     }
 
     def runLongDatabaseQuery() {
-        println 'Calling database'
+        println 'Calling database'                                   //#A
         /* ... */
         return 'query result'
     }
 }
 
 new Database().search()
+//#A Calling database

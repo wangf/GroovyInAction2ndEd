@@ -2,9 +2,9 @@ import groovy.transform.builder.Builder
 
 @Builder
 class Chemist {
-  String first
-  String last
-  int born
+    String first
+    String last
+    int born
 }
 
 def builder = Chemist.builder()                                 //#1

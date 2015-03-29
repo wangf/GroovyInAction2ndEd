@@ -1,6 +1,8 @@
 import org.codehaus.groovy.tools.ast.TransformTestHelper
+
 import static groovy.test.GroovyAssert.shouldFail
-import static org.codehaus.groovy.control.CompilePhase.*
+import static org.codehaus.groovy.control.CompilePhase.CONVERSION
+import static org.codehaus.groovy.control.CompilePhase.PARSING
 
 def DATE_FMT = /\w{3} \w{3} \d\d \d\d:\d\d:\d\d \S{3,9} \d{4}/
 
@@ -11,7 +13,7 @@ def transform = getClass().classLoader.parseClass(source).newInstance()
 def helper = new TransformTestHelper(transform, PARSING)
 def clazz = helper.parse(' class MyClass {} ')
 shouldFail(MissingMethodException) {
-  clazz.getCompileTime()
+    clazz.getCompileTime()
 }
 
 helper = new TransformTestHelper(transform, CONVERSION)

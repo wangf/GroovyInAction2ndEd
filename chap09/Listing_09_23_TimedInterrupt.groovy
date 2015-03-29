@@ -1,8 +1,11 @@
 import groovy.transform.TimedInterrupt
+
 import java.util.concurrent.TimeoutException
+
 import static java.util.concurrent.TimeUnit.MILLISECONDS
 
-@TimedInterrupt(value = 480L, unit = MILLISECONDS)     //#A
+@TimedInterrupt(value = 480L, unit = MILLISECONDS)
+//#A
 class BlastOff1 {
     def log = []
 

@@ -1,4 +1,4 @@
-class NoisySet2 {
+class NoisySet {
     @Delegate
     Set delegate = new HashSet()
 
@@ -15,7 +15,7 @@ class NoisySet2 {
     }
 }
 
-Set ns = new NoisySet2()
+Set ns = new NoisySet()
 ns.add(1)
 ns.addAll([2, 3])
-assert ns.size() == 3
+assert ns.size() == 3 

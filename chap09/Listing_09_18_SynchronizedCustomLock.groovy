@@ -6,9 +6,10 @@ class PhoneBook2 {
     private final phoneNumbers = [:]
     private final lock = new Object[0]                //#A
 
-    @Synchronized('lock')                             //#B
+    @Synchronized('lock')
+    //#B
     def getNumber(key) {
-            phoneNumbers[key]
+        phoneNumbers[key]
     }
 
     def addNumber(key, value) {
@@ -27,5 +28,5 @@ def p2 = new PhoneBook2()
 }*.join()
 assert p2.getNumber('Number43') == '9876543'
 //#A Manually create lock
-//#B Specify the lock name
-//#C Manual synchronized block
+//#B Specify lock name
+//#C Manual synchronized block 

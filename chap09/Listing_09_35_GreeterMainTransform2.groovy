@@ -1,69 +1,80 @@
-import org.codehaus.groovy.ast.*
+import org.codehaus.groovy.ast.ASTNode
+import org.codehaus.groovy.ast.ClassHelper
+import org.codehaus.groovy.ast.ClassNode
+import org.codehaus.groovy.ast.Parameter
 import org.codehaus.groovy.ast.stmt.BlockStatement
-import org.codehaus.groovy.transform.*
-import java.lang.annotation.*
-import org.codehaus.groovy.control.*
+import org.codehaus.groovy.control.CompilePhase
+import org.codehaus.groovy.control.SourceUnit
+import org.codehaus.groovy.transform.AbstractASTTransformation
+import org.codehaus.groovy.transform.GroovyASTTransformation
+import org.codehaus.groovy.transform.GroovyASTTransformationClass
+
+import java.lang.annotation.ElementType
+import java.lang.annotation.Retention
+import java.lang.annotation.RetentionPolicy
+import java.lang.annotation.Target
+
+import static org.codehaus.groovy.ast.ClassHelper.VOID_TYPE
 
 @Retention(RetentionPolicy.SOURCE)
 @Target([ElementType.METHOD])
 @GroovyASTTransformationClass(classes = [MainTransformation2])
 @interface Main2 {
-  boolean merge() default false                                       //#A
+    boolean merge() default false                                       //#A
 }
 
-import static org.codehaus.groovy.ast.ClassHelper.VOID_TYPE
 import static org.codehaus.groovy.ast.tools.GeneralUtils.*
 
 @GroovyASTTransformation(phase = CompilePhase.INSTRUCTION_SELECTION)
 class MainTransformation2 extends AbstractASTTransformation {
-  private MSG1 = "@Main2 annotation use requires no-arg constructor!"
-  private MSG2 = "@Main2 annotation used but main already exists!"
-  private NO_EXCEPTIONS = ClassNode.EMPTY_ARRAY
-  private NO_PARAMS = Parameter.EMPTY_ARRAY
-  private STRING_ARRAY = ClassHelper.STRING_TYPE.makeArray()
+    private MSG1 = "@Main2 annotation use requires no-arg constructor!"
+    private MSG2 = "@Main2 annotation used but main already exists!"
+    private NO_EXCEPTIONS = ClassNode.EMPTY_ARRAY
+    private NO_PARAMS = Parameter.EMPTY_ARRAY
+    private STRING_ARRAY = ClassHelper.STRING_TYPE.makeArray()
 
-  void visit(ASTNode[] astNodes, SourceUnit sourceUnit) {
-    init(astNodes, sourceUnit)
-    def (anno, mainMethod) = astNodes
+    void visit(ASTNode[] astNodes, SourceUnit sourceUnit) {
+        init(astNodes, sourceUnit)
+        def (anno, mainMethod) = astNodes
 
-    boolean merge = getMemberValue(anno, 'merge')                     //#B
-    def mainClass = mainMethod.declaringClass
-    def callTarget
-    if (mainMethod.isStatic()) {
-      callTarget = mainClass
-    } else {
-      if (!hasNoArgConstructor(mainClass)) {
-        addError(MSG1, mainMethod)                                    //#C
-        return
-      }
-      callTarget = ctorX(mainClass)
+        boolean merge = getMemberValue(anno, 'merge')                     //#B
+        def mainClass = mainMethod.declaringClass
+        def callTarget
+        if (mainMethod.isStatic()) {
+            callTarget = mainClass
+        } else {
+            if (!hasNoArgConstructor(mainClass)) {
+                addError(MSG1, mainMethod)                                    //#C
+                return
+            }
+            callTarget = ctorX(mainClass)
+        }
+        def callStatement = stmt(callX(callTarget, mainMethod.name))
+        def parameters = params(param(STRING_ARRAY, 'args'))
+        def existingMain = mainClass.getDeclaredMethod('main', parameters)
+        if (existingMain && !merge) {
+            addError(MSG2, mainMethod)                                      //#D
+            return
+        }
+
+        if (existingMain) {
+            if (existingMain.code instanceof BlockStatement) {
+                existingMain.code.addStatement(callStatement)                 //#E
+            } else {
+                block(existingMain.code).addStatement(callStatement)          //#F
+            }
+        } else {
+            mainClass.addMethod('main', ACC_STATIC | ACC_PUBLIC,
+                    VOID_TYPE, parameters, NO_EXCEPTIONS, block(callStatement))
+        }
     }
-    def callStatement = stmt(callX(callTarget, mainMethod.name))
-    def parameters = params(param(STRING_ARRAY, 'args'))
-    def existingMain = mainClass.getDeclaredMethod('main', parameters)
-    if (existingMain && !merge) {
-      addError(MSG2, mainMethod)                                      //#D
-      return
-    }
 
-    if (existingMain) {
-      if (existingMain.code instanceof BlockStatement) {
-        existingMain.code.addStatement(callStatement)                 //#E
-      } else {
-        block(existingMain.code).addStatement(callStatement)          //#F
-      }
-    } else {
-      mainClass.addMethod('main', ACC_STATIC | ACC_PUBLIC,
-          VOID_TYPE, parameters, NO_EXCEPTIONS, block(callStatement))
+    private hasNoArgConstructor(mainClass) {
+        def constructors = mainClass.declaredConstructors
+        def explicitNoArg = constructors.find { it.parameters == NO_PARAMS }
+        def implicitNoArg = constructors.size() == 0
+        implicitNoArg || explicitNoArg
     }
-  }
-
-  private hasNoArgConstructor(mainClass) {
-    def constructors = mainClass.declaredConstructors
-    def explicitNoArg = constructors.find { it.parameters == NO_PARAMS }
-    def implicitNoArg = constructors.size() == 0
-    implicitNoArg || explicitNoArg
-  }
 }
 
 new GroovyShell(getClass().classLoader).evaluate '''

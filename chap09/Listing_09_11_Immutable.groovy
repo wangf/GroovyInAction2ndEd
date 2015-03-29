@@ -1,4 +1,5 @@
 import groovy.transform.Immutable
+
 import static groovy.test.GroovyAssert.shouldFail
 
 @Immutable
@@ -19,5 +20,5 @@ shouldFail(ReadOnlyPropertyException) {
 //#1 Map-based constructor
 //#2 toString method
 //#3 Tuple constructor
-//#4 property getter
-//#5 appropriate equals and hashCode
+//#4 Property getter
+//#5 Appropriate equals and hashCode

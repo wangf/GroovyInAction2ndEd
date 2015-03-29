@@ -1,7 +1,9 @@
 import static groovy.test.GroovyAssert.shouldFail
 
-@Singleton class Zeus { }
+@Singleton
+class Zeus {}
 
 assert Zeus.instance
 def ex = shouldFail(RuntimeException) { new Zeus() }
-println ex.message
+assert e.message ==
+        "Can't instantiate singleton Zeus. Use Zeus.instance"
