@@ -6,7 +6,7 @@ shell.evaluate('''
 ''')
 assert binding.getVariable("xSquare") == 36                 //#3
 assert binding.yCube == 64                                  //#4
-//#1 Prepopulating the binding data
-//#2 Setting binding data within the evaluated script
+//#1 Prepopulating binding data
+//#2 Setting binding data within evaluated script
 //#3 Method access to binding data
 //#4 Groovy property access to binding data

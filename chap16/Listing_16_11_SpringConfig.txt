@@ -1,1 +1,1 @@
-see: spring/beans.xml
+see: spring/resources/beans.xml

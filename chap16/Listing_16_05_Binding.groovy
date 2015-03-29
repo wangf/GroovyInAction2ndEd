@@ -8,6 +8,6 @@ assert shell.evaluate(expression) == 1252.814              //#2
 
 binding.setVariable("mass", 25.4)                          //#3
 assert shell.evaluate(expression) == 1426.972              //#3
-//#1 Create and populate the binding
-//#2 Evaluate the expression using the binding
-//#3 Change the binding data and re-evaluate
+//#1 Create and populate binding
+//#2 Evaluate expression using binding
+//#3 Change binding data and reevaluate

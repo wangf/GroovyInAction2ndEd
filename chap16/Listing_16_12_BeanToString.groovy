@@ -1,13 +1,15 @@
 import groovy.transform.ToString
 import org.codehaus.groovy.control.CompilerConfiguration
-import org.codehaus.groovy.control.customizers.*
+import org.codehaus.groovy.control.customizers.ASTTransformationCustomizer
+import org.codehaus.groovy.control.customizers.SourceAwareCustomizer
 
 def conf = new CompilerConfiguration()
 def astCustomizer = new ASTTransformationCustomizer(ToString)       //#1
 def sourceAwareCustomizer =
-    new SourceAwareCustomizer(astCustomizer)                        //#2
-sourceAwareCustomizer.baseNameValidator = {                         //#3
-  name -> name.endsWith 'Bean'
+        new SourceAwareCustomizer(astCustomizer)                        //#2
+sourceAwareCustomizer.baseNameValidator = {
+        //#3
+    name -> name.endsWith 'Bean'
 }
 conf.addCompilationCustomizers(sourceAwareCustomizer)
 
@@ -20,6 +22,6 @@ result.first = 'Rowan'
 result.last = 'Atkinson'
 assert result.toString() == 'MrBean(Rowan, Atkinson)'
 //#1 Create ToString AST customizer
-//#2 Wrap into a source aware customizer
-//#3 Create a basename filter
-//#4 Use conf with GroovyClassLoader
+//#2 Wrap into a source-aware customizer
+//#3 Create a base-name filter
+//#4 Use configuration with GroovyClassLoader
