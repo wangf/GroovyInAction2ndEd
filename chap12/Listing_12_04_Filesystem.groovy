@@ -6,7 +6,7 @@ def srcDir = new File(topDir, 'src')
 
 dirs = []
 srcDir.eachDir { dirs << it.name }                                  //#A
-assert  ['main', 'test'] == dirs
+assert ['main', 'test'] == dirs
 
 dirs = []
 topDir.eachDirRecurse { dirs << it.name }                           //#B

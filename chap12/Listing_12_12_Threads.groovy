@@ -1,5 +1,5 @@
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.BlockingQueue
+import java.util.concurrent.LinkedBlockingQueue
 
 Thread.metaClass.'static'.getName = { Thread.currentThread().name } //#A
 
@@ -11,7 +11,8 @@ Thread.start('push') {                                              //#C
             println("${Thread.name}\t: ${it}")
             sharedQueue << it
             sleep 100
-        } catch (InterruptedException ignore) {}
+        } catch (InterruptedException ignore) {
+        }
     }
 }
 
@@ -22,7 +23,7 @@ Thread.start('pop') {                                               //#D
 
     }
 }
-//#A Create a new method to get the thread name
-//#B Create a shared queue
-//#C Start a thread producing 10 items
-//#D Start a thread consuming 10 items
+//#A Create new method to get thread name
+//#B Create shared queue
+//#C Start thread producing 10 items
+//#D Start thread consuming 10 items

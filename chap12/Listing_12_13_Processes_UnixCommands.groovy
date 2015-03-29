@@ -1,4 +1,3 @@
-// works for unix-based systems
 def listFiles = 'ls'.execute()
 def ignoreCase = "tr '[A-Z]' '[a-z]'".execute()
 def reverseSort = 'sort -r'.execute()
@@ -11,4 +10,3 @@ if (reverseSort.exitValue()) {
 } else {
     print reverseSort.text
 }
-
