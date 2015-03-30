@@ -1,4 +1,5 @@
-import static groovyx.gpars.actor.Actors.*
+import static groovyx.gpars.actor.Actors.messageHandler
+import static groovyx.gpars.actor.Actors.reactor
 
 def manual = reactor { message ->
     switch (message) {                          //#1

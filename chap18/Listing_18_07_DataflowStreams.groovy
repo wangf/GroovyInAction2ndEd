@@ -1,12 +1,15 @@
-import static groovyx.gpars.dataflow.Dataflow.*
 import groovyx.gpars.dataflow.DataflowQueue
+
+import static groovyx.gpars.dataflow.Dataflow.operator
+import static groovyx.gpars.dataflow.Dataflow.task
+
 
 def chances = new DataflowQueue()
 def amounts = new DataflowQueue()
 def payouts = new DataflowQueue()
 
-operator( inputs: [chances, amounts],
-          outputs:[payouts],
+operator(inputs: [chances, amounts],
+        outputs: [payouts],
         { chance, amount -> payouts << chance * amount }
 )
 

@@ -1,4 +1,4 @@
-import static groovyx.gpars.actor.Actors.*
+import static groovyx.gpars.actor.Actors.reactor
 
 def stopper = reactor { stop() }
 stopper.metaClass.afterStop = { inbox -> println inbox }
