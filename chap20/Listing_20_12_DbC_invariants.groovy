@@ -17,7 +17,7 @@ class Kettle {
     @Requires({ desiredAmount > 0 })
     @Ensures({
         result >= 0;
-        result == 0 ? waterVolume == old.waterVolume : waterVolume < old.waterVolume
+        result == 0 ? waterVolume==old.waterVolume : waterVolume<old.waterVolume
     })
     int pour(int desiredAmount) {
         int amountPoured = (desiredAmount <= waterVolume
@@ -26,7 +26,6 @@ class Kettle {
         waterVolume = waterVolume - amountPoured
         amountPoured
     }
-
 }
 
 def kettle = new Kettle()

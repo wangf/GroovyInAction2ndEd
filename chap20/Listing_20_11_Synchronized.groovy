@@ -7,5 +7,3 @@ class Person {
         this.addresses.addAll(addresses)
     }
 }
-
-assert new Person()
