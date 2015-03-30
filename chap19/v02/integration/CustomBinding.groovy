@@ -7,8 +7,8 @@ class CustomBinding extends Binding {
 
   CustomBinding(Map vars) {
     this.variables = [
-        *: vars,                                                    //#1
-        *: Direction.values().collectEntries { [(it.name()): it] }  //#1
+            *: vars,                                                    //#1
+            *: Direction.values().collectEntries { [(it.name()): it] }  //#1
     ]
   }
 

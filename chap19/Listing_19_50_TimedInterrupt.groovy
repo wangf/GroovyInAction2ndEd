@@ -6,7 +6,7 @@ import static groovy.test.GroovyAssert.shouldFail
 
 def config = new CompilerConfiguration()                         //#2
 config.addCompilationCustomizers(                                //#2
-    new ASTTransformationCustomizer(value: 2, TimedInterrupt)    //#2
+        new ASTTransformationCustomizer(value: 2, TimedInterrupt)    //#2
 )
 def shell = new GroovyShell(config)
 def te = shouldFail(TimeoutException) {

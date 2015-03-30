@@ -1,4 +1,4 @@
-import groovy.transform.*
+import groovy.transform.ToString
 
 @ToString
 class Car {

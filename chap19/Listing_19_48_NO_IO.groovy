@@ -11,7 +11,7 @@ config.addCompilationCustomizers(secure)
 def shell = new GroovyShell(config)
 
 groovy.test.GroovyAssert.shouldFail {
-  shell.evaluate '''                                 //#3
+    shell.evaluate '''                                 //#3
     new File('.')                                    //#3
   '''                                                //#3
 }

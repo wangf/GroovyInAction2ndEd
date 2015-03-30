@@ -14,13 +14,3 @@ def given(Closure g) {
     }]
   }]
 }
-
-
-given {
-  a = 1
-  b = 2
-} when {
-  result = a + b
-} then {
-  assert result == 3
-}

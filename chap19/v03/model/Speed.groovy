@@ -1,11 +1,10 @@
-package v03.model
-
 import groovy.transform.TupleConstructor
+import v03.model.*
 
 @TupleConstructor
 class Speed {
-  Number amount
-  Unit unit
+  double amount
+  DistanceUnit unit
 
   String toString() { "$amount $unit/h" }
 }
