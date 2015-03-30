@@ -35,6 +35,6 @@ class Listing_17_12_JUnitPerf extends TestCase {
 //#C Class under test
 //#D Define test case
 //#E 20 users for load staggered at 100 ms
-//#F Decorate testcase to simulate load
+//#F Decorate test case to simulate load
 //#G Must return within 2100 ms
 //#H Return decorated time-constrained test

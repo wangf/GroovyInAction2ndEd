@@ -30,4 +30,3 @@ class Listing_17_11_LoggingCounterTest extends GroovyLogTestCase {
 //#C Invoke SUT
 //#D Traditional JUnit style assert
 //#E Helper method asserting patterns within the log
-

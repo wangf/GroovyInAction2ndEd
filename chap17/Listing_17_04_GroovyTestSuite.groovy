@@ -10,3 +10,5 @@ static Test suite() {
 }
 
 TestRunner.run(suite())
+
+junit.textui.TestRunner.run(suite())

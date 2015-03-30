@@ -31,6 +31,3 @@ class Listing_17_03_HashMapTest extends GroovyTestCase {
     assert myMap.size() == MAP.size()
   }
 }
-//#A Check that the right kind of exception is thrown
-//#B Check the message
-//#C Use Groovy inspection to examine the map

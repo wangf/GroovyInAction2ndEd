@@ -7,10 +7,10 @@ def gen = integers(-40, 240)                         //#1
 def liquidC =  0..100
 def liquidF = 32..212
 100.times {
-  int f = gen.next()                                 //#2
+  int f = gen.next()                               //#2
   int c = round(celsius(f))
-  assert c <= f                                      //#3
-  assert c in liquidC == f in liquidF                //#4
+  assert c <= f                                    //#3
+  assert c in liquidC == f in liquidF              //#4
 }
 //#1 Select integers from this range
 //#2 Get the next integer

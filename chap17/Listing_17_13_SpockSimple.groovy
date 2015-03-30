@@ -1,4 +1,4 @@
-@Grab('org.spockframework:spock-core:0.7-groovy-2.0')
+@Grab('org.spockframework:spock-core:1.0-groovy-2.4')
 import spock.lang.Specification
 
 class GivenWhenThenSpec extends Specification {

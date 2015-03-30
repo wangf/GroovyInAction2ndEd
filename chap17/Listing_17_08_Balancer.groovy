@@ -6,13 +6,14 @@ def relay(request, farm) {                             //#|A
 
 class FakeMachine {                                    //#B
     def load
+
     def send(request) { return this }
 }
 
 final LOW_LOAD = 5, HIGH_LOAD = 10
-def farm = [machines: [                                //#|C
-    new FakeMachine(load:HIGH_LOAD),                   //#|C
-    new FakeMachine(load:LOW_LOAD)]]                   //#|C
+def farm = [machines: [
+        new FakeMachine(load: HIGH_LOAD),                   //#|C
+        new FakeMachine(load: LOW_LOAD)]]                   //#|C
 
 assertSame(LOW_LOAD, relay(null, farm).load)
 //#A Subject under test

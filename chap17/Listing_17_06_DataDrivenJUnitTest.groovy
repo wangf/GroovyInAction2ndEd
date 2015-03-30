@@ -5,7 +5,7 @@ import org.junit.runners.Parameterized.Parameters
 import static Converter.celsius
 
 @RunWith(Parameterized)                                    //#1
-class Listing_17_10_DataDrivenJUnitTest {
+class Listing_17_06_DataDrivenJUnitTest {
   private c, f, scenario
 
   @Parameters static scenarios() {[                        //#2
@@ -15,7 +15,7 @@ class Listing_17_10_DataDrivenJUnitTest {
       [100, 212, 'Boiling']
   ]*.toArray()}
 
-  Listing_17_10_DataDrivenJUnitTest(c, f, scenario) {      //#3
+  Listing_17_06_DataDrivenJUnitTest(c, f, scenario) {      //#3
     this.c = c;
     this.f = f;
     this.scenario = scenario;

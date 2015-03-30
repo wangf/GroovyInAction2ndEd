@@ -1,12 +1,10 @@
-@Grab('org.spockframework:spock-core:0.7-groovy-2.0')
+@Grab('org.spockframework:spock-core:1.0-groovy-2.4')
 import spock.lang.*
 
 import static Converter.celsius
 
 class Listing_17_17_SpockDataDriven extends Specification {
-  @Unroll
-//  def "test temperature scenarios"() {
-    def "Scenario #scenario: #tempFºF should convert to #tempCºC"() {
+  def "test temperature scenarios"() {
     expect:
     celsius(tempF) == tempC
 
