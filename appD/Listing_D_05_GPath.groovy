@@ -1,5 +1,3 @@
-import groovy.xml.dom.DOMCategory
-
 def recipeXml = '''
 <recipe>
    <ingredients>
@@ -20,30 +18,38 @@ def recipeXml = '''
 </recipe>
 '''
 
-def recipe  = new XmlSlurper().parseText(recipeXml)
+def recipe = new XmlSlurper().parseText(recipeXml)
+
 
 assert 4 == recipe.ingredients.ingredient.size()
+
 // should be 14 elements in total
-assert 14 == recipe.'**'.findAll{true}.size()
+assert 14 == recipe.'**'.findAll { true }.size()
+
 // step 4 (index 3 because we start from 0) involves milk
 assert recipe.steps.step[3].text().contains('milk')
 assert '2 cups' == recipe.ingredients.ingredient[0].'@amount'.toString()
+
 // two ingredients have '2 tablespoons' amount attribute
-def ingredients = recipe.ingredients.ingredient.grep{
+def ingredients = recipe.ingredients.ingredient.grep {
     it.'@amount' == '2 tablespoons'
 }
 assert ingredients.size() == 2
+
 // every step has at least 4 words
-assert recipe.steps.step.every{
+assert recipe.steps.step.every {
     step -> step.text().tokenize(' ').size() >= 4
 }
 
 
-def recipe2  = new XmlParser().parseText(recipeXml)
+
+
+def recipe2 = new XmlParser().parseText(recipeXml)
 /* … processing steps … */
-def reader  = new StringReader(recipeXml)
-def doc     = groovy.xml.DOMBuilder.parse(reader)
-def recipe3  = doc.documentElement
-use (groovy.xml.dom.DOMCategory) {
+def reader = new StringReader(recipeXml)
+def doc = groovy.xml.DOMBuilder.parse(reader)
+def recipe3 = doc.documentElement
+use(groovy.xml.dom.DOMCategory) {
     /* … processing steps … */
+
 }

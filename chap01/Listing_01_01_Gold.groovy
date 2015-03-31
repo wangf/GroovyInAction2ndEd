@@ -1,5 +1,3 @@
-
-
 List fibo = [1, 1]                          //#A
 List gold = [1, 2]                          //#B
 
